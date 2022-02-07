@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 import { graphql} from "gatsby";
 
 const BlogPage = ({ data }) => {
@@ -7,9 +8,13 @@ const BlogPage = ({ data }) => {
             <h1 className="text-3xl font-bold">Articles</h1>
 
             {data.allMdx.nodes.map((article) => (
-                <article key={article.id}>
-                    {article.frontmatter.title}
-                </article>
+                <Link to={`/blog/articles/${article.slug}`} key={article.id}>
+                    <article>
+                        <h3>{article.frontmatter.title}</h3>
+                        <time dateTime={article.frontmatter.date}>Posted: {article.frontmatter.date}</time>
+                    </article>
+                </Link>
+
             ))}
         </main>
     )
@@ -17,11 +22,11 @@ const BlogPage = ({ data }) => {
 
 export const query = graphql`
     query {
-        allMdx {
+        allMdx(sort: {fields: frontmatter___date, order: DESC}) {
             nodes {
                 frontmatter {
                     title
-                    date
+                    date(formatString: "MMMM D, YYYY")
                 }
                 id
                 slug
