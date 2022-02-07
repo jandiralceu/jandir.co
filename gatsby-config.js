@@ -1,23 +1,18 @@
-// const gatsbySourceFilesystem = require('./config/plugins/source-filesystem')
-const path = require('path')
+const gatsbySourceFilesystem = require('./config/plugins/gatsby-source-filesystem')
+const gatsbyTransformerRemark = require('./config/plugins/gatsby-plugin-mdx')
+
 module.exports = {
   siteMetadata: {
       title: `Jandir Alceu`,
       description: `site description goes here`,
-      siteUrl: `https://www.yourdomain.tld`,
+      siteUrl: `https://jandir.co`,
       author: `Jandir Alceu - iam@jandir.co`
   },
   plugins: [
       "gatsby-plugin-postcss",
-      `gatsby-plugin-mdx`,
-      "gatsby-transformer-remark",
-      {
-          resolve: `gatsby-source-filesystem`,
-          options: {
-              name: `articles`,
-              path: path.resolve('./content/articles'),
-              ignore: [`**/\.*`], // ignore files starting with a dot
-          }
-      },
+      `gatsby-plugin-sharp`,
+      `gatsby-remark-images`,
+      gatsbyTransformerRemark,
+      ...gatsbySourceFilesystem,
   ]
 };
