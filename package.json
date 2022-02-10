@@ -12,7 +12,12 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "test": "echo 'Testing'",
+    "test:watch": "echo 'Watching test'",
+    "test:staged": "echo 'Testing staged file'",
+    "test:ci": "echo 'Testing CI'",
+    "test:e2e": "echo 'Testing 2e2'"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
