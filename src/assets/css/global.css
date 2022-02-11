@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 /* index page */
-.home {}
-
 .home .social-network a:not(:last-of-type) {
     margin-right: 10px;
 }
