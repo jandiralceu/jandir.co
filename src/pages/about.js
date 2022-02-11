@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby";
 
-const AboutPage = () => {
+export default () => {
     return (
         <main>
             <h1 className="text-3xl font-bold">Jandir Alceu</h1>
@@ -10,5 +10,3 @@ const AboutPage = () => {
         </main>
     )
 }
-
-export default AboutPage
