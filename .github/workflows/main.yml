@@ -1,4 +1,4 @@
-name: site_blog_master_ci
+name: site_blog_main_ci_cd
 
 on:
   push:
@@ -11,13 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: ⌛️ Installing dependencies
-        run: npm install
+        run: yarn
 
       - name: 👀 Linting
-        run: npm run lint
+        run: yarn lint
 
       - name: 🌡 Testing
-        run: npm run test:ci
+        run: yarn test:ci
 
   build:
     runs-on: ubuntu-latest
@@ -28,10 +28,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: ⌛️ Installing dependencies
-        run: npm install
+        run: yarn
 
       - name: 🏗 Building
-        run: npm run build
+        run: yarn build
 
       - name: 🚀 Uploading artifacts
         uses: actions/upload-artifact@v2
@@ -59,7 +59,7 @@ jobs:
 
       - uses: chrislennon/action-aws-cli@v1.1
       - name: ☁️ Deploying to aws
-        run: aws s3 sync /home/runner/work/jandir-alceu-site-blog/jandir-alceu-site-blog/public s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete
+        run: aws s3 sync /home/runner/work/jandir.co/jandir.co/public s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

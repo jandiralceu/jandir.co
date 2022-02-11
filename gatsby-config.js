@@ -1,13 +1,9 @@
 const gatsbySourceFilesystem = require('./config/plugins/gatsby-source-filesystem')
 const gatsbyTransformerRemark = require('./config/plugins/gatsby-plugin-mdx')
+const gatsbySitemetadata = require('./config/plugins/gatsby-sitemetadata')
 
 module.exports = {
-  siteMetadata: {
-      title: `Jandir Alceu`,
-      description: `site description goes here`,
-      siteUrl: `https://jandir.co`,
-      author: `Jandir Alceu - iam@jandir.co`
-  },
+  siteMetadata: gatsbySitemetadata,
   plugins: [
       "gatsby-plugin-postcss",
       `gatsby-plugin-sharp`,

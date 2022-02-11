@@ -1,0 +1,50 @@
+name: site_blog_develop_ci_cd
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  lint_and_testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: ⌛️ Installing dependencies
+        run: yarn
+
+      - name: 👀 Linting
+        run: yarn lint
+
+      - name: 🌡 Testing
+        run: yarn test:ci
+
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    needs: lint_and_testing
+    environment:
+      name: "development"
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: ⌛️ Installing dependencies
+        run: yarn
+
+      - name: 🏗 Building
+        run: yarn build
+
+      - name: ☁️ Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: './public'
+          production-branch: develop
+          github-token: ${{ secrets.BLOG_GITHUB_TOKEN }}
+          deploy-message: "Deployed from GitHub Actions"
+          enable-pull-request-comment: false
+          github-deployment-environment: "development"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
+
