@@ -1,4 +1,4 @@
-name: site_blog_master_ci
+name: site_blog_main_ci_cd
 
 on:
   push:
