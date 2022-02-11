@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-const NotFoundPage = () => {
+export default () => {
   return (
     <main>
       <title>Not found</title>
@@ -12,4 +12,3 @@ const NotFoundPage = () => {
   )
 }
 
-export default NotFoundPage
