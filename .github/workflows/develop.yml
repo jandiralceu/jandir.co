@@ -19,59 +19,16 @@ jobs:
       - name: 🌡 Testing
         run: npm run test:ci
 
-  build:
+  build_and_deploy:
     runs-on: ubuntu-latest
     needs: lint_and_testing
     environment:
       name: "development"
 
     steps:
-      - uses: actions/checkout@v2
-      - name: ⌛️ Installing dependencies
-        run: npm install
-
-      - name: 🏗 Building
-        run: npm run build
-
-      - name: 🚀 Uploading artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: public
-          path: public
-          if-no-files-found: error
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: "development"
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: ACTIONS_ALLOW_UNSECURE_COMMANDS
-        run: echo 'ACTIONS_ALLOW_UNSECURE_COMMANDS=true' >> $GITHUB_ENV
-
-      - name: ⏳ Downloading public artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: public
-          path: public
-
+      - uses: nelonoel/branch-name@v1.0.1
       - uses: jsmrcaga/action-netlify-deploy@master
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          build_directory: /home/runner/work/jandir-alceu-site-blog/jandir-alceu-site-blog/public
-
-#      - uses: chrislennon/action-aws-cli@v1.1
-#      - name: ☁️ Deploying to aws
-#        run: aws s3 sync /home/runner/work/jandir-alceu-site-blog/jandir-alceu-site-blog/public s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete
-#        env:
-#          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#
-#      - name: 🔌 Creating invalidation
-#        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/index.html"
-#        env:
-#          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          deploy_alias: ${{ env.BRANCH_NAME }}
