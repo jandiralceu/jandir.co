@@ -27,8 +27,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - uses: jsmrcaga/action-netlify-deploy@master
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2
         with:
+          publish-dir: './public'
+          production-branch: develop
+          github-token: ${{ secrets.BLOG_GITHUB_TOKEN }}
+          deploy-message: "Deployed from GitHub Actions"
+          enable-pull-request-comment: false
+          github-deployment-environment: "development"
+        env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          build_directory: 'public'
+        timeout-minutes: 1
+
