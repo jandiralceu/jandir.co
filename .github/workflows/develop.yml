@@ -27,7 +27,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Deploy to Netlify
+
+      - name: ⌛️ Installing dependencies
+        run: npm install
+
+      - name: 🏗 Building
+        run: npm run build
+
+      - name: ☁️ Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
           publish-dir: './public'
