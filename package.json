@@ -33,6 +33,9 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "lint": "echo 'Linting'",
+    "lint:eslint": "echo 'lint eslint'",
+    "lint:prettier": "echo 'lint prettier'",
+    "lint:check": "echo 'lint prettier'",
     "test": "echo 'Testing'",
     "test:watch": "echo 'Watching test'",
     "test:staged": "echo 'Testing staged file'",
@@ -77,5 +80,12 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "yarn lint:eslint",
+      "yarn lint:prettier",
+      "yarn test:staged"
+    ]
   }
 }
