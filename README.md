@@ -1,3 +1,4 @@
 # 🚀 [jandir.co](https://jandir.co)
 
-Hello, I'm Jandir Alceu, a Front-end Developer from Angola, based in Brazil.
+Hello, I'm Jandir A. Kutabyala, a Front-end Engineer from Angola, based in 
+Brazil.
