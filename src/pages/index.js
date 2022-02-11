@@ -1,15 +1,12 @@
 import * as React from "react"
-import {Link, useTranslation} from 'gatsby-plugin-react-i18next';
+import {SocialNetwork} from "../components/ui";
 
 const IndexPage = () => {
-    const {t} = useTranslation();
-
   return (
-    <main>
-        <h1 className="text-3xl font-bold">Jandir Alceu</h1>
-        <h2>{t('Home')}</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dignissimos maxime, nemo nobis perferendis perspiciatis sapiente totam. Architecto culpa dicta doloribus expedita illo inventore possimus quos sed, ut velit vero?</p>
-        <Link to="/blog">Blog</Link>
+    <main className="min-h-screen flex flex-col items-center justify-center bg-stone-800 text-white text-center">
+        <h1 className="text-5xl font-bold">Jandir A. Kutabyala</h1>
+        <p className="mt-6 text-base">My website is under construction. <br/>Follow me for updates!</p>
+        <SocialNetwork />
     </main>
   )
 }
