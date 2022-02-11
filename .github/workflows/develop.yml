@@ -26,9 +26,9 @@ jobs:
       name: "development"
 
     steps:
-      - uses: nelonoel/branch-name@v1.0.1
-      - uses: jsmrcaga/action-netlify-deploy@master
+      - uses: actions/checkout@v1
+      - uses: jsmrcaga/action-netlify-deploy@develop
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          deploy_alias: ${{ env.BRANCH_NAME }}
+          build_directory: 'public'
