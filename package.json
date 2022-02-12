@@ -33,9 +33,9 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "lint": "echo 'Linting'",
-    "lint:eslint": "echo 'lint eslint'",
-    "lint:prettier": "echo 'lint prettier'",
-    "lint:check": "echo 'lint prettier'",
+    "lint:eslint": "eslint --ext .ts,.tsx,.js,.jsx --fix .",
+    "lint:prettier": "prettier -w .",
+    "lint:check": "prettier -c .",
     "test": "echo 'Testing'",
     "test:watch": "echo 'Watching test'",
     "test:staged": "echo 'Testing staged file'",
@@ -70,11 +70,21 @@
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "@typescript-eslint/parser": "^5.11.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "3.3.0",
-    "eslint-config-react-app": "^7.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-react": "^7.28.0",
+    "gatsby-plugin-eslint": "^4.0.2",
     "husky": "^7.0.0",
-    "lint-staged": "^12.3.3"
+    "lint-staged": "^12.3.3",
+    "prettier": "^2.5.1"
   },
   "config": {
     "commitizen": {

@@ -1,0 +1,7 @@
+node_modules
+public
+.idea
+.vscode
+.cache
+.github
+.husky
