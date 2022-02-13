@@ -11,6 +11,7 @@ module.exports = {
   },
   extends: ['plugin:react/recommended', 'standard', 'prettier'],
   parser: '@typescript-eslint/parser',
+
   parserOptions: {
     ecmaFeatures: {
       jsx: true
