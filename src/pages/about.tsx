@@ -1,9 +1,15 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 
+import { useSiteMetadata } from '../hooks'
+import Seo from '../components/templates/Seo'
+
 const About = () => {
+  const { title: defaultTitle } = useSiteMetadata()
+
   return (
     <main>
+      <Seo title={`About | ${defaultTitle}`} />
       <h1 className="text-3xl font-bold">Jandir Alceu</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus

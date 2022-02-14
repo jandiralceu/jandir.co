@@ -8,28 +8,25 @@ const BlogPage = ({ data }: any) => {
   const { title: defaultTitle } = useSiteMetadata()
 
   return (
-    <>
+    <main>
       <Seo title={`Blog | ${defaultTitle}`} />
+      <h1 className="text-3xl font-bold">Articles</h1>
 
-      <main>
-        <h1 className="text-3xl font-bold">Articles</h1>
-
-        {data.allMdx.nodes.map((article) => (
-          <Link to={`/blog/articles/${article.slug}`} key={article.id}>
-            <article>
-              <h3>{article.frontmatter.title}</h3>
-              <img
-                src={article.frontmatter.cover.publicURL}
-                alt={article.frontmatter.title}
-              />
-              <time dateTime={article.frontmatter.date}>
-                Posted: {article.frontmatter.date}
-              </time>
-            </article>
-          </Link>
-        ))}
-      </main>
-    </>
+      {data.allMdx.nodes.map((article) => (
+        <Link to={`/blog/articles/${article.slug}`} key={article.id}>
+          <article>
+            <h3>{article.frontmatter.title}</h3>
+            <img
+              src={article.frontmatter.cover.publicURL}
+              alt={article.frontmatter.title}
+            />
+            <time dateTime={article.frontmatter.date}>
+              Posted: {article.frontmatter.date}
+            </time>
+          </article>
+        </Link>
+      ))}
+    </main>
   )
 }
 
