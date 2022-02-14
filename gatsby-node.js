@@ -21,7 +21,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const articles = result.data.allMdx.edges
 
-  articles.forEach(({ node }, index) => {
+  articles.forEach(({ node }) => {
     createPage({
       path: `/blog/articles/${node.slug}`,
       component: path.resolve(`./src/components/templates/Article/index.js`),
