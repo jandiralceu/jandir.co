@@ -5,20 +5,20 @@ import { useLocation } from '@reach/router'
 
 import { useSiteMetadata } from '../../../hooks'
 
-const Seo = ({ title, description, author, url, article, cover }) => {
+const Seo = ({ title, description, article, cover }) => {
   const { pathname } = useLocation()
   const {
     title: defaultTitle,
     description: defaultDescription,
     siteUrl: defaultSiteUrl,
-    image: defaultImage,
+    cover: defaultCover,
     twitter
   } = useSiteMetadata()
 
   const seo = {
     url: `${defaultSiteUrl}${pathname}`,
     title: title ?? defaultTitle,
-    cover: cover ?? defaultImage,
+    cover: cover ?? defaultCover,
     description: description ?? defaultDescription
   }
 
@@ -26,6 +26,7 @@ const Seo = ({ title, description, author, url, article, cover }) => {
     <Helmet title={seo.title} defaultTitle="Jandir A. Kutabyala">
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.cover} />
+
       {seo.url && <meta property="og:url" content={seo.url} />}
       {article && <meta property="og:type" content="article" />}
       {seo.title && <meta property="og:title" content={seo.title} />}
@@ -33,8 +34,9 @@ const Seo = ({ title, description, author, url, article, cover }) => {
         <meta property="og:description" content={seo.description} />
       )}
       {seo.cover && <meta property="og:image" content={seo.cover} />}
+
       <meta name="twitter:card" content="summary_large_image" />
-      {twitter && <meta name="twitter:creator" content={twitter} />}
+      <meta name="twitter:creator" content={twitter} />
       {seo.title && <meta name="twitter:title" content={seo.title} />}
       {seo.description && (
         <meta name="twitter:description" content={seo.description} />
@@ -47,8 +49,6 @@ const Seo = ({ title, description, author, url, article, cover }) => {
 Seo.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  author: PropTypes.string,
-  url: PropTypes.string,
   article: PropTypes.bool,
   cover: PropTypes.string
 }
@@ -56,8 +56,6 @@ Seo.propTypes = {
 Seo.defaultProps = {
   title: null,
   description: null,
-  author: null,
-  url: null,
   article: false,
   cover: null
 }
