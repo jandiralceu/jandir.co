@@ -4,5 +4,5 @@ module.exports = {
   siteUrl: `https://jandir.co`,
   author: `Jandir A. Kutabyala`,
   twitter: `@jandiralceu`,
-  cover: `https://jandir.co/static/cover.png`
+  cover: `/cover.png`
 }
