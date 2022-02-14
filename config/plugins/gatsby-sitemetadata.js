@@ -1,6 +1,8 @@
 module.exports = {
-    title: `Jandir Alceu`,
-    description: `site description goes here`,
-    siteUrl: `https://jandir.co`,
-    author: `Jandir Alceu - iam@jandir.co`
+  title: `Jandir A. Kutabyala`,
+  description: `site description goes here`,
+  siteUrl: `https://jandir.co`,
+  author: `Jandir A. Kutabyala`,
+  twitter: `@jandiralceu`,
+  image: ''
 }
