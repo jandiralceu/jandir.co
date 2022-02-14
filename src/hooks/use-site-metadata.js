@@ -10,6 +10,8 @@ export const useSiteMetadata = () => {
             siteUrl
             description
             author
+            cover
+            twitter
           }
         }
       }
