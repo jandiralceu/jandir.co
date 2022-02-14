@@ -57,12 +57,22 @@ jobs:
           name: public
           path: public
 
-      - uses: chrislennon/action-aws-cli@v1.1
-      - name: 📦️ Deploying to aws
-        run: aws s3 sync /home/runner/work/jandir.co/jandir.co/public s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete
+#      - uses: chrislennon/action-aws-cli@v1.1
+#      - name: 📦️ Deploying to aws
+#        run: aws s3 sync /home/runner/work/jandir.co/jandir.co/public s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete
+#        env:
+#          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#
+#      - uses: actions/checkout@master
+      - uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
         env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          SOURCE_DIR: '/home/runner/work/jandir.co/jandir.co/public'
 
       - name: 🔌 Creating invalidation
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/index.html"
