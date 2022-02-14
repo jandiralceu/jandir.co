@@ -38,7 +38,6 @@ jobs:
         uses: nwtgck/actions-netlify@v1.2
         with:
           publish-dir: './public'
-          production-branch: develop
           github-token: ${{ secrets.BLOG_GITHUB_TOKEN }}
           deploy-message: "Deployed from GitHub Actions"
           enable-pull-request-comment: false
