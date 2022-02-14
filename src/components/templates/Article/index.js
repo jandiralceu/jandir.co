@@ -4,11 +4,21 @@ import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import PropTypes from 'prop-types'
 
+import Seo from '../Seo'
+import { useSiteMetadata } from '../../../hooks'
+
 const shortcodes = { Link }
 
 const Article = ({ data: { mdx } }) => {
+  const { siteUrl: defaultUrl } = useSiteMetadata()
+
   return (
     <div>
+      <Seo
+        cover={`${defaultUrl}${mdx.frontmatter.cover.publicURL}`}
+        title={mdx.frontmatter.title}
+        article
+      />
       <h1>{mdx.frontmatter.title}</h1>
       <MDXProvider components={shortcodes}>
         <MDXRenderer frontmatter={mdx.frontmatter}>{mdx.body}</MDXRenderer>
@@ -24,6 +34,9 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
+        cover {
+          publicURL
+        }
       }
     }
   }

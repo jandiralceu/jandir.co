@@ -51,10 +51,12 @@
     "@fortawesome/react-fontawesome": "^0.1.17",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@reach/router": "^1.3.4",
     "autoprefixer": "^10.4.2",
     "gatsby": "^4.6.2",
     "gatsby-plugin-mdx": "^3.6.0",
     "gatsby-plugin-postcss": "^5.6.0",
+    "gatsby-plugin-react-helmet": "^5.7.0",
     "gatsby-plugin-react-i18next": "^1.2.2",
     "gatsby-plugin-sharp": "^4.6.0",
     "gatsby-remark-images": "^6.6.0",
@@ -64,6 +66,7 @@
     "postcss": "^8.4.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
     "react-i18next": "^11.15.3",
     "tailwindcss": "^3.0.18"
   },
@@ -91,6 +94,7 @@
     "jest": "^27.5.1",
     "lint-staged": "^12.3.3",
     "prettier": "^2.5.1",
+    "prop-types": "^15.8.1",
     "react-test-renderer": "^17.0.2"
   },
   "config": {
