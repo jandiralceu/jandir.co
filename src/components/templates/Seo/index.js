@@ -18,7 +18,7 @@ const Seo = ({ title, description, article, cover }) => {
   const seo = {
     url: `${defaultSiteUrl}${pathname}`,
     title: title ?? defaultTitle,
-    cover: cover ?? `${defaultSiteUrl}${defaultCover}`,
+    cover: cover ?? defaultCover,
     description: description ?? defaultDescription
   }
 
