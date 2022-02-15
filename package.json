@@ -105,9 +105,9 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
-      "yarn lint:eslint",
-      "yarn lint:prettier",
-      "yarn test:staged"
+      "npm run lint:eslint",
+      "npm run lint:prettier",
+      "npm run test:staged"
     ]
   }
 }

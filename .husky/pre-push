@@ -1,5 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn lint:check
-yarn test:ci
+npm run lint:check
+npm run test:ci
