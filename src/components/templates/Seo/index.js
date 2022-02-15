@@ -5,13 +5,14 @@ import { useLocation } from '@reach/router'
 
 import { useSiteMetadata } from '../../../hooks'
 
-const Seo = ({ title, description, article, cover }) => {
+const Seo = ({ title, description, article, cover, keywords }) => {
   const { pathname } = useLocation()
   const {
     title: defaultTitle,
     description: defaultDescription,
     siteUrl: defaultSiteUrl,
     cover: defaultCover,
+    keywords: defaultKeywords,
     twitter
   } = useSiteMetadata()
 
@@ -26,9 +27,13 @@ const Seo = ({ title, description, article, cover }) => {
     <Helmet title={seo.title} defaultTitle="Jandir A. Kutabyala">
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.cover} />
+      <meta
+        name="keywords"
+        content={keywords ? `${keywords},${defaultKeywords}` : defaultKeywords}
+      />
 
       {seo.url && <meta property="og:url" content={seo.url} />}
-      {article && <meta property="og:type" content="article" />}
+      <meta property="og:type" content={article ? 'article' : 'website'} />
       {seo.title && <meta property="og:title" content={seo.title} />}
       {seo.description && (
         <meta property="og:description" content={seo.description} />
@@ -50,14 +55,16 @@ Seo.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   article: PropTypes.bool,
-  cover: PropTypes.string
+  cover: PropTypes.string,
+  keywords: PropTypes.string
 }
 
 Seo.defaultProps = {
   title: null,
   description: null,
   article: false,
-  cover: null
+  cover: null,
+  keywords: null
 }
 
 export default Seo

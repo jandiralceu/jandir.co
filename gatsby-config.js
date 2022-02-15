@@ -6,6 +6,7 @@ const gatsbyi18n = require('./config/plugins/gatsby-i18n')
 module.exports = {
   siteMetadata: gatsbySitematadata,
   plugins: [
+    `gatsby-plugin-sitemap`,
     'gatsby-plugin-postcss',
     `gatsby-plugin-sharp`,
     `gatsby-remark-images`,

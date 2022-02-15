@@ -12,6 +12,7 @@ export const useSiteMetadata = () => {
             author
             cover
             twitter
+            keywords
           }
         }
       }

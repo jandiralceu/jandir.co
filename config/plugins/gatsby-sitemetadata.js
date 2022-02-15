@@ -4,5 +4,6 @@ module.exports = {
   siteUrl: `https://jandir.co`,
   author: `Jandir A. Kutabyala`,
   twitter: `@jandiralceu`,
-  cover: `/img/cover.png`
+  cover: `/img/cover.png`,
+  keywords: `jandir a. kutabyala, jandir alceu, jandir alceu kutabyala, cutabiala, cutadiala, front-end, frontend`
 }
