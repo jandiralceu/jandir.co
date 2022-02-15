@@ -20,17 +20,15 @@ const Seo = ({ title, description, article, cover, keywords }) => {
     url: defaultSiteUrl + pathname,
     title: title ?? defaultTitle,
     cover: cover ?? defaultSiteUrl + defaultCover,
-    description: description ?? defaultDescription
+    description: description ?? defaultDescription,
+    keywords: keywords ? `${keywords},${defaultKeywords}` : defaultKeywords
   }
 
   return (
     <Helmet title={seo.title} defaultTitle="Jandir A. Kutabyala">
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.cover} />
-      <meta
-        name="keywords"
-        content={keywords ? `${keywords},${defaultKeywords}` : defaultKeywords}
-      />
+      <meta name="keywords" content={seo.keywords} />
 
       {seo.url && <meta property="og:url" content={seo.url} />}
       <meta property="og:type" content={article ? 'article' : 'website'} />
