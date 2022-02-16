@@ -27,7 +27,7 @@
   },
   "homepage": "https://jandir.co",
   "scripts": {
-    "develop": "gatsby develop",
+    "develop": "NODE_ENV=development gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
