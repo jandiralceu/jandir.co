@@ -8,6 +8,8 @@ on:
 jobs:
   lint_and_testing:
     runs-on: ubuntu-latest
+    environment:
+      name: "production"
     steps:
       - uses: actions/checkout@v2
       - name: ⌛️ Installing dependencies
@@ -18,13 +20,14 @@ jobs:
 
       - name: 🌡 Testing
         run: npm run test:ci
+        env:
+          GATSBY_SITE_URL: ${{ secrets.GATSBY_SITE_URL }}
 
   build:
     runs-on: ubuntu-latest
     needs: lint_and_testing
     environment:
       name: "production"
-
     steps:
       - uses: actions/checkout@v2
       - name: ⌛️ Installing dependencies
@@ -32,6 +35,8 @@ jobs:
 
       - name: 🏗 Building
         run: npm run build
+        env:
+          GATSBY_SITE_URL: ${{ secrets.GATSBY_SITE_URL }}
 
       - name: 🚀 Uploading artifacts
         uses: actions/upload-artifact@v2

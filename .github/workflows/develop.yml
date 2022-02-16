@@ -8,6 +8,8 @@ on:
 jobs:
   lint_and_testing:
     runs-on: ubuntu-latest
+    environment:
+      name: "development"
     steps:
       - uses: actions/checkout@v2
       - name: ⌛️ Installing dependencies
@@ -26,7 +28,6 @@ jobs:
     needs: lint_and_testing
     environment:
       name: "development"
-
     steps:
       - uses: actions/checkout@v1
 
