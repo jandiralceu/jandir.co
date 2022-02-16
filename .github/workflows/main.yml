@@ -66,6 +66,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           SOURCE_DIR: '/home/runner/work/jandir.co/jandir.co/public'
 
+      - uses: actions/checkout@master
       - uses: awact/cloudfront-action@master
         env:
           SOURCE_PATH: '/index.html'
