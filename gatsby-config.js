@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+})
+
 const gatsbySourceFilesystem = require('./config/plugins/gatsby-source-filesystem')
 const gatsbyTransformerRemark = require('./config/plugins/gatsby-plugin-mdx')
 const gatsbySitematadata = require('./config/plugins/gatsby-sitemetadata')

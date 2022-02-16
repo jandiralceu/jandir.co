@@ -5,3 +5,6 @@ public
 # editors
 .vscode
 .idea
+.env
+.env.development
+.env.production
