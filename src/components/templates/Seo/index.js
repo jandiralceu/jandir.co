@@ -45,6 +45,8 @@ const Seo = ({ title, description, article, cover, keywords }) => {
         <meta name="twitter:description" content={seo.description} />
       )}
       {seo.cover && <meta name="twitter:image" content={seo.cover} />}
+
+      <meta name="googlebot" content="notranslate" />
     </Helmet>
   )
 }
