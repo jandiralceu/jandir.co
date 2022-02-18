@@ -1,11 +1,12 @@
 module.exports = {
   resolve: `gatsby-plugin-react-i18next`,
   options: {
-    localeJsonSourceName: `locale`, // name given to `gatsby-source-filesystem` plugin.
+    localeJsonSourceName: `locale`, // name given to
+    // `gatsby-source-filesystem` plugin.
     languages: [`en`, `pt`],
     defaultLanguage: `en`,
     // if you are using Helmet, you must include siteUrl, and make sure you add http:https
-    siteUrl: `https://example.com/`,
+    siteUrl: `${process.env.GATSBY_SITE_URL}`,
     // you can pass any i18next options
     i18nextOptions: {
       interpolation: {
@@ -21,6 +22,10 @@ module.exports = {
       },
       {
         matchPath: '/:lang?/about',
+        getLanguageFromPath: true
+      },
+      {
+        matchPath: '/:lang?/contact',
         getLanguageFromPath: true
       }
     ]

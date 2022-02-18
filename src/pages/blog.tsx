@@ -33,7 +33,7 @@ const BlogPage = ({ data }: any) => {
 }
 
 export const query = graphql`
-  query {
+  query ($language: String!) {
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         frontmatter {
@@ -48,7 +48,30 @@ export const query = graphql`
         timeToRead
       }
     }
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
   }
 `
+
+// export const translation = graphql`
+//   query ($language: String!) {
+//     locales: allLocale(filter: { language: { eq: $language } }) {
+//       edges {
+//         node {
+//           ns
+//           data
+//           language
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default BlogPage

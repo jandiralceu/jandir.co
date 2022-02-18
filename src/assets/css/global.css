@@ -2,7 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-/* index page */
-.home .social-network a:not(:last-of-type) {
-  margin-right: 10px;
-}
