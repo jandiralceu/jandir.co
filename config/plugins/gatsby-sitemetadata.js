@@ -1,6 +1,6 @@
 module.exports = {
   title: `Jandir A. Kutabyala`,
-  description: `site description goes here`,
+  description: `My personal website, where I share everything about everything.`,
   siteUrl: `${process.env.GATSBY_SITE_URL}`,
   author: `Jandir A. Kutabyala`,
   twitter: `@jandiralceu`,

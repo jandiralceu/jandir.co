@@ -4,7 +4,11 @@ module.exports = {
     extend: {},
     container: {
       center: true
+    },
+    fontFamily: {
+      ibm: ["'IBM Plex Sans', sans-serif"]
     }
   },
+  darkMode: 'class',
   plugins: []
 }
