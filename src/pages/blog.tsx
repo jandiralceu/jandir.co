@@ -1,11 +1,13 @@
 import * as React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
+import { Link } from 'gatsby-plugin-react-i18next'
 
 import { useSiteMetadata } from '../hooks'
 import Seo from '../components/templates/Seo'
 
 const BlogPage = ({ data }: any) => {
   const { title: defaultTitle } = useSiteMetadata()
+  // const { t } = useTranslation()
 
   return (
     <main>
@@ -31,7 +33,7 @@ const BlogPage = ({ data }: any) => {
 }
 
 export const query = graphql`
-  query {
+  query ($language: String!) {
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         frontmatter {
@@ -46,7 +48,30 @@ export const query = graphql`
         timeToRead
       }
     }
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
   }
 `
+
+// export const translation = graphql`
+//   query ($language: String!) {
+//     locales: allLocale(filter: { language: { eq: $language } }) {
+//       edges {
+//         node {
+//           ns
+//           data
+//           language
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default BlogPage

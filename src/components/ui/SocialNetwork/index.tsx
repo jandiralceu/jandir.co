@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export const SocialNetwork = () => {
   return (
     <section className="home mt-6">
-      <div className="social-network text-white">
+      <div className="space-x-6 text-white">
         <a href="https://twitter.com/jandiralceu">
           <FontAwesomeIcon icon={['fab', 'twitter']} size="lg" />
         </a>
