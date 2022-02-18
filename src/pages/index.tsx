@@ -2,14 +2,16 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 
 import { Header } from '../components/ui'
+import { MainTheme } from '../components/layouts'
 import Seo from '../components/templates/Seo'
 
 const Index = () => {
   return (
-    <div>
+    <MainTheme>
       <Seo />
       <Header />
-    </div>
+      <main>Content</main>
+    </MainTheme>
   )
 }
 
