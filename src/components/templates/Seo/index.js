@@ -26,6 +26,7 @@ const Seo = ({ title, description, article, cover, keywords }) => {
 
   return (
     <Helmet title={seo.title} defaultTitle="Jandir A. Kutabyala">
+      <meta charset="utf-8" />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.cover} />
       <meta name="keywords" content={seo.keywords} />

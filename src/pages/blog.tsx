@@ -13,7 +13,7 @@ const Blog = ({ data }: any) => {
     <MainTheme>
       <Seo title={`Blog | ${defaultTitle}`} />
 
-      <main className="container max-w-5xl ">
+      <main className="container max-w-5xl">
         <h1 className="text-3xl font-bold">Articles</h1>
 
         {data.allMdx.nodes.map((article) => (
