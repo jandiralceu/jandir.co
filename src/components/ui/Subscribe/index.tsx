@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useFormik } from 'formik'
+import * as sgMail from '@sendgrid/mail'
 
 export const Subscribe = () => {
   const { handleSubmit, getFieldProps } = useFormik({
@@ -8,6 +9,7 @@ export const Subscribe = () => {
       email: ''
     },
     onSubmit: ({ name, email }) => {
+      sgMail.setApiKey(process.env.SENDGRID_API_KEY)
       const msg = {
         to: 'me@jandir.co', // Change to your recipient
         from: 'jandiralceu@gmail.com', // Change to your verified sender
@@ -16,16 +18,25 @@ export const Subscribe = () => {
         html: '<strong>and easy to do anywhere, even with Node.js</strong>'
       }
 
-      fetch('https://api.sendgrid.com/v3/', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${process.env.SENDGRID_APIKEY}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(msg)
-      })
-        .then(console.log)
-        .catch(console.log)
+      sgMail
+        .send(msg)
+        .then(() => {
+          console.log('Email sent')
+        })
+        .catch((error) => {
+          console.error(error)
+        })
+
+      // fetch('https://api.sendgrid.com/v3/', {
+      //   method: 'POST',
+      //   headers: {
+      //     Authorization: `Bearer ${process.env.SENDGRID_APIKEY}`,
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify(msg)
+      // })
+      //   .then(console.log)
+      //   .catch(console.log)
     }
   })
 
