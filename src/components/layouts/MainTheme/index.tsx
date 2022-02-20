@@ -1,0 +1,60 @@
+import * as React from 'react'
+
+import { Navbar, SocialNetwork, Subscribe } from '../../ui'
+import { useSiteMetadata } from '../../../hooks'
+import { Link } from 'gatsby-plugin-react-i18next'
+
+export const MainTheme = ({ children }: React.PropsWithChildren<any>) => {
+  const { title, description } = useSiteMetadata()
+  return (
+    <div className="bg-zinc-100 min-h-screen flex flex-col">
+      <div className="grow">
+        <Navbar />
+        {children}
+      </div>
+
+      <footer className="bg-zinc-900 text-white py-24 mt-48">
+        <section className="container max-w-5xl grid gap-10 grid-cols-3">
+          <section>
+            <h2 className="mb-6">
+              <Link to="/" className="font-ibm font-bold text-3xl">
+                {title}
+              </Link>
+            </h2>
+            <p className="mb-2">{description}</p>
+            <SocialNetwork />
+          </section>
+
+          <section>
+            <h3 className="mb-6 font-bold">Sitemap</h3>
+            <ul>
+              <li>Home</li>
+              <li>Blog</li>
+              <li>About</li>
+              <li>Contact</li>
+              <li>Sitemap.xml</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 className="mb-6 font-bold">Subscribe</h3>
+
+            <p className="mb-6">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
+              ducimus esse eum fugiat hic, ipsa ipsum magnam magni
+              necessitatibus nesciunt non.
+            </p>
+
+            <Subscribe />
+          </section>
+        </section>
+
+        <section className="container max-w-5xl mt-20">
+          <p>
+            All rights reserved © {title} {new Date().getFullYear()}
+          </p>
+        </section>
+      </footer>
+    </div>
+  )
+}

@@ -1,24 +1,28 @@
 import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 
-import { useSiteMetadata } from '../hooks'
+import { MainTheme } from '../components/layouts'
 import Seo from '../components/templates/Seo'
 
-const About = () => {
+import { useSiteMetadata } from '../hooks'
+
+const Contact = () => {
   const { title: defaultTitle } = useSiteMetadata()
 
   return (
-    <main>
-      <Seo title={`About | ${defaultTitle}`} />
-      <h1 className="text-3xl font-bold">Jandir Alceu</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
-        dignissimos maxime, nemo nobis perferendis perspiciatis sapiente totam.
-        Architecto culpa dicta doloribus expedita illo inventore possimus quos
-        sed, ut velit vero?
-      </p>
-      <Link to="/blog">Blog</Link>
-    </main>
+    <MainTheme>
+      <Seo title={`Contact | ${defaultTitle}`} />
+      <main className="container max-w-5xl ">
+        <h1 className="text-3xl font-bold">{defaultTitle}</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+          dignissimos maxime, nemo nobis perferendis perspiciatis sapiente
+          totam. Architecto culpa dicta doloribus expedita illo inventore
+          possimus quos sed, ut velit vero?
+        </p>
+        <Link to="/blog">Blog</Link>
+      </main>
+    </MainTheme>
   )
 }
 
@@ -36,4 +40,4 @@ export const query = graphql`
   }
 `
 
-export default About
+export default Contact
