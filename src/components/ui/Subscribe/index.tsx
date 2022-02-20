@@ -9,8 +9,9 @@ export const Subscribe = () => {
       email: ''
     },
     onSubmit: ({ name, email }) => {
-      const apiKey = process.env.SENDGRID_API_KEY as string
-      sgMail.setApiKey(apiKey)
+      sgMail.setApiKey(
+        `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`
+      )
       const msg = {
         to: 'me@jandir.co', // Change to your recipient
         from: 'jandiralceu@gmail.com', // Change to your verified sender
