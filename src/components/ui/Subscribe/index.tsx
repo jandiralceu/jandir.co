@@ -9,9 +9,7 @@ export const Subscribe = () => {
       email: ''
     },
     onSubmit: ({ name, email }) => {
-      sgMail.setApiKey(
-        `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`
-      )
+      sgMail.setApiKey(process.env.GATSBY_SENDGRID_APIKEY)
       const msg = {
         to: 'me@jandir.co', // Change to your recipient
         from: 'jandiralceu@gmail.com', // Change to your verified sender
