@@ -22,6 +22,7 @@ jobs:
         run: npm run test:ci
         env:
           GATSBY_SITE_URL: ${{ secrets.GATSBY_SITE_URL }}
+          SENDGRID_APIKEY: ${{ secrets.SENDGRID_APIKEY }}
 
   build:
     runs-on: ubuntu-latest
@@ -37,6 +38,7 @@ jobs:
         run: npm run build
         env:
           GATSBY_SITE_URL: ${{ secrets.GATSBY_SITE_URL }}
+          SENDGRID_APIKEY: ${{ secrets.SENDGRID_APIKEY }}
 
       - name: 🚀 Uploading artifacts
         uses: actions/upload-artifact@v2

@@ -1,3 +1,4 @@
 export * from './Navbar'
 export * from './SocialNetwork'
 export * from './Header'
+export * from './Subscribe'
