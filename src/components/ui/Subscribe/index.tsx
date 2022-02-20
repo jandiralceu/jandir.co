@@ -13,8 +13,8 @@ export const Subscribe = () => {
       const msg = {
         to: 'me@jandir.co', // Change to your recipient
         from: 'jandiralceu@gmail.com', // Change to your verified sender
-        subject: 'Sending with SendGrid is Fun',
-        text: 'and easy to do anywhere, even with Node.js',
+        subject: 'Sending with SendGrid is Fun. Updated!',
+        text: 'and easy to do anywhere, even with Gatsby',
         html: '<strong>and easy to do anywhere, even with Node.js</strong>'
       }
 
