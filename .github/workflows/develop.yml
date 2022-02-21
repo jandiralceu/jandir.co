@@ -22,7 +22,7 @@ jobs:
         run: npm run test:ci
         env:
           GATSBY_SITE_URL: ${{ secrets.GATSBY_SITE_URL }}
-          SENDGRID_APIKEY: ${{ secrets.SENDGRID_APIKEY }}
+          SENDGRID_APIKEY: ${{ secrets.GATSBY_SENDGRID_APIKEY }}
 
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -39,7 +39,7 @@ jobs:
         run: npm run build
         env:
           GATSBY_SITE_URL: ${{ secrets.GATSBY_SITE_URL }}
-          SENDGRID_APIKEY: ${{ secrets.SENDGRID_APIKEY }}
+          SENDGRID_APIKEY: ${{ secrets.GATSBY_SENDGRID_APIKEY }}
 
       - name: 📦 Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
