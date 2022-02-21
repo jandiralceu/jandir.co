@@ -16,14 +16,19 @@ export const Subscribe = () => {
         html: '<strong>and easy to do anywhere, even with Node.js</strong>'
       }
 
-      fetch('/serverless/send-message', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(msg)
-      })
+      fetch(
+        process.env.NODE_ENV === 'development'
+          ? '/serverless/send-message'
+          : 'https://omrbwzk4e2.execute-api.us-east-1.amazonaws.com/send-message',
+        {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(msg)
+        }
+      )
         .then(console.log)
         .catch(console.log)
     }
