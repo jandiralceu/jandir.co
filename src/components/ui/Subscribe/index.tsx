@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { useFormik } from 'formik'
-import * as sgMail from '@sendgrid/mail'
 
 export const Subscribe = () => {
   const { handleSubmit, getFieldProps } = useFormik({
@@ -9,34 +8,24 @@ export const Subscribe = () => {
       email: ''
     },
     onSubmit: ({ name, email }) => {
-      sgMail.setApiKey(process.env.GATSBY_SENDGRID_APIKEY)
       const msg = {
         to: 'me@jandir.co', // Change to your recipient
-        from: 'jandiralceu@gmail.com', // Change to your verified sender
-        subject: 'Sending with SendGrid is Fun. Updated!',
+        from: 'me@jandir.co', // Change to your verified sender
+        subject: 'Sending with SES is Fun. Updated!',
         text: 'and easy to do anywhere, even with Gatsby',
         html: '<strong>and easy to do anywhere, even with Node.js</strong>'
       }
 
-      sgMail
-        .send(msg)
-        .then(() => {
-          console.log('Email sent')
-        })
-        .catch((error) => {
-          console.error(error)
-        })
-
-      // fetch('https://api.sendgrid.com/v3/', {
-      //   method: 'POST',
-      //   headers: {
-      //     Authorization: `Bearer ${process.env.SENDGRID_APIKEY}`,
-      //     'Content-Type': 'application/json'
-      //   },
-      //   body: JSON.stringify(msg)
-      // })
-      //   .then(console.log)
-      //   .catch(console.log)
+      fetch('/serverless/send-message', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(msg)
+      })
+        .then(console.log)
+        .catch(console.log)
     }
   })
 

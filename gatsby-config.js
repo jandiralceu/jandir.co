@@ -17,5 +17,11 @@ module.exports = {
     gatsbyTransformerRemark,
     ...gatsbySourceFilesystem,
     gatsbyi18n
+  ],
+  proxy: [
+    {
+      prefix: '/serverless',
+      url: 'https://omrbwzk4e2.execute-api.us-east-1.amazonaws.com'
+    }
   ]
 }
