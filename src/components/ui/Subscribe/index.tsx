@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { useFormik } from 'formik'
 import axios from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Subscribe = () => {
   const { handleSubmit, getFieldProps } = useFormik({
@@ -65,8 +66,12 @@ export const Subscribe = () => {
         />
       </div>
 
-      <button className="mt-6" type="submit">
-        Send{' '}
+      <button
+        className="mt-4 bg-white text-zinc-900 py-4 px-6 rounded-md"
+        type="submit"
+      >
+        Subscribe{' '}
+        <FontAwesomeIcon icon={['fas', 'bell']} size="lg" className="ml-6" />
       </button>
     </form>
   )

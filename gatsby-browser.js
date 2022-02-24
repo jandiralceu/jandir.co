@@ -1,5 +1,10 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faMoon, faSun, faBars } from '@fortawesome/free-solid-svg-icons'
+import {
+  faMoon,
+  faSun,
+  faBars,
+  faBell
+} from '@fortawesome/free-solid-svg-icons'
 import {
   fab,
   faGithub,
@@ -17,5 +22,6 @@ library.add(
   faLinkedinIn,
   faMoon,
   faSun,
-  faBars
+  faBars,
+  faBell
 )
