@@ -10,13 +10,13 @@ export const Navbar = () => {
   const [nightMode, setNightMode] = React.useState(false)
 
   return (
-    <nav className="md:px-12  bg-zinc-900 w-full text-white font-ibm">
-      <div className="container max-w-5xl grid grid-gap grid-cols-3 py-10">
+    <nav className="px-6 bg-zinc-900 w-full text-white font-ibm">
+      <div className="container max-w-5xl grid grid-gap grid-cols-2 md:grid-cols-3 items-center py-10">
         <Link to="/" className="font-ibm font-bold text-3xl">
           {title}
         </Link>
 
-        <ul className="flex justify-center space-x-10">
+        <ul className="hidden md:flex justify-center space-x-10">
           <li>
             <Link to="/blog">Blog</Link>
           </li>
@@ -28,7 +28,7 @@ export const Navbar = () => {
           </li>
         </ul>
 
-        <ul className="flex justify-end space-x-4 text-sm">
+        <ul className="hidden md:flex justify-end space-x-4 text-sm">
           {languages.map((language) => (
             <li key={language}>
               <Link to={originalPath} language={language}>
@@ -53,11 +53,9 @@ export const Navbar = () => {
           </li>
         </ul>
 
-        {/* <div className="flex justify-end items-center space-x-6"> */}
-        {/*  */}
-
-        {/*  */}
-        {/* </div> */}
+        <div className="flex justify-end md:hidden text-3xl">
+          <FontAwesomeIcon icon={['fas', 'bars']} size="lg" />
+        </div>
       </div>
     </nav>
   )
