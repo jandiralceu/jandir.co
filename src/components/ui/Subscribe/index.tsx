@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useFormik } from 'formik'
+import axios from 'axios'
 
 export const Subscribe = () => {
   const { handleSubmit, getFieldProps } = useFormik({
@@ -7,7 +8,7 @@ export const Subscribe = () => {
       name: '',
       email: ''
     },
-    onSubmit: ({ name, email }) => {
+    onSubmit: async ({ name, email }) => {
       const msg = {
         to: 'me@jandir.co', // Change to your recipient
         from: 'me@jandir.co', // Change to your verified sender
@@ -16,21 +17,27 @@ export const Subscribe = () => {
         html: '<strong>and easy to do anywhere, even with Node.js</strong>'
       }
 
-      fetch(
-        process.env.NODE_ENV === 'development'
-          ? '/serverless/send-message'
-          : 'https://omrbwzk4e2.execute-api.us-east-1.amazonaws.com/send-message',
-        {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(msg)
+      // fetch(
+      //   process.env.NODE_ENV === 'development'
+      //     ? '/serverless/send-message'
+      //     : 'https://omrbwzk4e2.execute-api.us-east-1.amazonaws.com/send-message',
+      //   {
+      //     method: 'POST',
+      //     headers: {
+      //       Accept: 'application/json',
+      //       'Content-Type': 'application/json'
+      //     },
+      //     body: JSON.stringify(msg)
+      //   }
+      // )
+      //   .then(console.log)
+      //   .catch(console.log)
+      await axios.post('/serverless/send-message', msg, {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
         }
-      )
-        .then(console.log)
-        .catch(console.log)
+      })
     }
   })
 

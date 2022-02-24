@@ -10,7 +10,7 @@ export const Navbar = () => {
   const [nightMode, setNightMode] = React.useState(false)
 
   return (
-    <nav className="bg-zinc-900 w-full text-white font-ibm">
+    <nav className="md:px-12  bg-zinc-900 w-full text-white font-ibm">
       <div className="container max-w-5xl grid grid-gap grid-cols-3 py-10">
         <Link to="/" className="font-ibm font-bold text-3xl">
           {title}
