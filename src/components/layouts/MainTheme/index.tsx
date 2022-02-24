@@ -13,7 +13,7 @@ export const MainTheme = ({ children }: React.PropsWithChildren<any>) => {
         {children}
       </div>
 
-      <footer className="px-10 bg-zinc-900 text-white py-14 lg:py-24 mt-48">
+      <footer className="px-6 bg-zinc-900 text-white py-14 lg:py-24 mt-48">
         <section className="container max-w-5xl flex flex-col md:grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           <section>
             <h2 className="mb-6">
