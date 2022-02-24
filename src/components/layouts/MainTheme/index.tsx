@@ -49,10 +49,12 @@ export const MainTheme = ({ children }: React.PropsWithChildren<any>) => {
           </section>
         </section>
 
-        <section className="container max-w-5xl mt-20">
+        <section className="container max-w-5xl mt-20 text-xs flex justify-between">
           <p>
             All rights reserved © {title} {new Date().getFullYear()}
           </p>
+
+          <Link to="/">Term of use</Link>
         </section>
       </footer>
     </div>
