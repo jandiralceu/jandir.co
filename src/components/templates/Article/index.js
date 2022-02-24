@@ -5,6 +5,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import PropTypes from 'prop-types'
 
 import Seo from '../Seo'
+import { MainTheme } from '../../layouts'
 import { useSiteMetadata } from '../../../hooks'
 
 const shortcodes = { Link }
@@ -13,17 +14,19 @@ const Article = ({ data: { mdx } }) => {
   const { siteUrl: defaultUrl } = useSiteMetadata()
 
   return (
-    <div>
+    <MainTheme>
       <Seo
         cover={`${defaultUrl}${mdx.frontmatter.cover.publicURL}`}
         title={mdx.frontmatter.title}
         article
       />
-      <h1>{mdx.frontmatter.title}</h1>
-      <MDXProvider components={shortcodes}>
-        <MDXRenderer frontmatter={mdx.frontmatter}>{mdx.body}</MDXRenderer>
-      </MDXProvider>
-    </div>
+      <main className="container max-w-5xl my-20">
+        <h1>{mdx.frontmatter.title}</h1>
+        <MDXProvider components={shortcodes}>
+          <MDXRenderer frontmatter={mdx.frontmatter}>{mdx.body}</MDXRenderer>
+        </MDXProvider>
+      </main>
+    </MainTheme>
   )
 }
 

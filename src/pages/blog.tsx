@@ -2,33 +2,36 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Link } from 'gatsby-plugin-react-i18next'
 
+import { MainTheme } from '../components/layouts'
 import { useSiteMetadata } from '../hooks'
 import Seo from '../components/templates/Seo'
 
-const BlogPage = ({ data }: any) => {
+const Blog = ({ data }: any) => {
   const { title: defaultTitle } = useSiteMetadata()
-  // const { t } = useTranslation()
 
   return (
-    <main>
+    <MainTheme>
       <Seo title={`Blog | ${defaultTitle}`} />
-      <h1 className="text-3xl font-bold">Articles</h1>
 
-      {data.allMdx.nodes.map((article) => (
-        <Link to={`/blog/articles/${article.slug}`} key={article.id}>
-          <article>
-            <h3>{article.frontmatter.title}</h3>
-            <img
-              src={article.frontmatter.cover.publicURL}
-              alt={article.frontmatter.title}
-            />
-            <time dateTime={article.frontmatter.date}>
-              Posted: {article.frontmatter.date}
-            </time>
-          </article>
-        </Link>
-      ))}
-    </main>
+      <main className="container max-w-5xl">
+        <h1 className="text-3xl font-bold">Articles</h1>
+
+        {data.allMdx.nodes.map((article) => (
+          <Link to={`/blog/articles/${article.slug}`} key={article.id}>
+            <article>
+              <h3>{article.frontmatter.title}</h3>
+              <img
+                src={article.frontmatter.cover.publicURL}
+                alt={article.frontmatter.title}
+              />
+              <time dateTime={article.frontmatter.date}>
+                Posted: {article.frontmatter.date}
+              </time>
+            </article>
+          </Link>
+        ))}
+      </main>
+    </MainTheme>
   )
 }
 
@@ -60,18 +63,4 @@ export const query = graphql`
   }
 `
 
-// export const translation = graphql`
-//   query ($language: String!) {
-//     locales: allLocale(filter: { language: { eq: $language } }) {
-//       edges {
-//         node {
-//           ns
-//           data
-//           language
-//         }
-//       }
-//     }
-//   }
-// `
-
-export default BlogPage
+export default Blog
