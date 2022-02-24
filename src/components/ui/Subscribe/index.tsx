@@ -54,7 +54,7 @@ export const Subscribe = () => {
         />
       </div>
 
-      <div className="flex flex-col mb-6">
+      <div className="flex flex-col mb-6 mt-6">
         <label htmlFor="email" className="mb-2">
           Email
         </label>
@@ -65,7 +65,7 @@ export const Subscribe = () => {
         />
       </div>
 
-      <button className="mt-14" type="submit">
+      <button className="mt-6" type="submit">
         Send{' '}
       </button>
     </form>

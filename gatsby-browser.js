@@ -1,12 +1,21 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
+import { faMoon, faSun, faBars } from '@fortawesome/free-solid-svg-icons'
 import {
   fab,
+  faGithub,
   faTwitter,
   faYoutube,
-  faGithub,
   faLinkedinIn
 } from '@fortawesome/free-brands-svg-icons'
 import './src/assets/css/global.css'
 
-library.add(fab, faTwitter, faYoutube, faGithub, faLinkedinIn, faMoon, faSun)
+library.add(
+  fab,
+  faTwitter,
+  faYoutube,
+  faGithub,
+  faLinkedinIn,
+  faMoon,
+  faSun,
+  faBars
+)

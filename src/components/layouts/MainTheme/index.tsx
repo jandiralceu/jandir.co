@@ -13,8 +13,8 @@ export const MainTheme = ({ children }: React.PropsWithChildren<any>) => {
         {children}
       </div>
 
-      <footer className="bg-zinc-900 text-white py-24 mt-48">
-        <section className="container max-w-5xl grid gap-10 grid-cols-3">
+      <footer className="px-10 bg-zinc-900 text-white py-14 lg:py-24 mt-48">
+        <section className="container max-w-5xl flex flex-col md:grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           <section>
             <h2 className="mb-6">
               <Link to="/" className="font-ibm font-bold text-3xl">
@@ -27,7 +27,7 @@ export const MainTheme = ({ children }: React.PropsWithChildren<any>) => {
 
           <section>
             <h3 className="mb-6 font-bold">Sitemap</h3>
-            <ul>
+            <ul className="flex space-x-5 md:block md:space-x-0">
               <li>Home</li>
               <li>Blog</li>
               <li>About</li>
@@ -36,7 +36,7 @@ export const MainTheme = ({ children }: React.PropsWithChildren<any>) => {
             </ul>
           </section>
 
-          <section>
+          <section className="col-span-2 lg:col-auto">
             <h3 className="mb-6 font-bold">Subscribe</h3>
 
             <p className="mb-6">
