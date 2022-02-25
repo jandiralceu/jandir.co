@@ -45,29 +45,31 @@ export const Subscribe = () => {
   return (
     <form onSubmit={handleSubmit} action="/">
       <div className="flex flex-col">
-        <label htmlFor="name" className="mb-2">
-          Your Name
+        <label htmlFor="name" className="mb-2 w-full">
+          <input
+            id="name"
+            type="text"
+            placeholder="Your name"
+            {...getFieldProps('name')}
+            className="form-input rounded-md bg-slate-600 border-0 outline-slate-200 text-white w-full"
+          />
         </label>
-        <input
-          type="text"
-          {...getFieldProps('name')}
-          className="form-input rounded-md bg-zinc-100 border-0 outline-slate-200 text-black"
-        />
       </div>
 
-      <div className="flex flex-col mb-6 mt-6">
-        <label htmlFor="email" className="mb-2">
-          Email
+      <div className="flex flex-col mb-4 mt-4">
+        <label htmlFor="email" className="mb-2 w-full">
+          <input
+            id="email"
+            type="email"
+            placeholder="Your email"
+            {...getFieldProps('email')}
+            className="form-input rounded-md bg-slate-600 border-0 outline-slate-200 text-white w-full"
+          />
         </label>
-        <input
-          type="email"
-          {...getFieldProps('email')}
-          className="form-input rounded-md bg-zinc-100 border-0 outline-slate-200 text-black"
-        />
       </div>
 
       <button
-        className="mt-4 bg-white text-zinc-900 py-4 px-6 rounded-md"
+        className="bg-white text-zinc-900 py-4 px-6 rounded-md"
         type="submit"
       >
         Subscribe{' '}

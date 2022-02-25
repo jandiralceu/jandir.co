@@ -1,51 +1,55 @@
 import * as React from 'react'
-
-import { Navbar, SocialNetwork, Subscribe } from '../../ui'
-import { useSiteMetadata } from '../../../hooks'
 import { Link } from 'gatsby-plugin-react-i18next'
 
+import { useSiteMetadata } from '../../../hooks'
+import { Navbar, SocialNetwork } from '../../ui'
+
 export const MainTheme = ({ children }: React.PropsWithChildren<any>) => {
-  const { title, description } = useSiteMetadata()
+  const { title, description, siteUrl } = useSiteMetadata()
+
   return (
-    <div className="bg-zinc-100 min-h-screen flex flex-col">
+    <div className="bg-slate-50 text-slate-900 font-ibm min-h-screen flex flex-col">
       <div className="grow">
         <Navbar />
         {children}
       </div>
 
-      <footer className="px-6 bg-zinc-900 text-white py-14 lg:py-24 mt-48">
-        <section className="container max-w-5xl flex flex-col md:grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-          <section>
-            <h2 className="mb-6">
-              <Link to="/" className="font-ibm font-bold text-3xl">
+      <footer className="bg-slate-100 px-6 py-10 lg:py-14 mt-28">
+        <section className="container max-w-5xl flex flex-col justify-center items-center text-center">
+          <section className="flex flex-col justify-center items-center">
+            <h2 className="mb-2">
+              <Link to="/" className="font-bold text-3xl">
                 {title}
               </Link>
             </h2>
-            <p className="mb-2">{description}</p>
+            <p className="w-80">{description}</p>
             <SocialNetwork />
           </section>
 
-          <section>
-            <h3 className="mb-6 font-bold">Sitemap</h3>
-            <ul className="flex space-x-5 md:block md:space-x-0">
-              <li>Home</li>
-              <li>Blog</li>
-              <li>About</li>
-              <li>Contact</li>
-              <li>Sitemap.xml</li>
+          <section className="flex flex-col justify-center items-center mt-8">
+            <ul className="flex space-x-5">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/blog">Blog</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+              <li>
+                <a
+                  href={`${siteUrl}/sitemap/sitemap-0.xml`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Sitemap.xml
+                </a>
+              </li>
             </ul>
-          </section>
-
-          <section className="col-span-2 lg:col-auto">
-            <h3 className="mb-6 font-bold">Subscribe</h3>
-
-            <p className="mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
-              ducimus esse eum fugiat hic, ipsa ipsum magnam magni
-              necessitatibus nesciunt non.
-            </p>
-
-            <Subscribe />
           </section>
         </section>
 

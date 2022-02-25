@@ -20,7 +20,7 @@ const Article = ({ data: { mdx } }) => {
         title={mdx.frontmatter.title}
         article
       />
-      <main className="container max-w-5xl my-20">
+      <main className="container max-w-5xl my-20 px-6">
         <h1>{mdx.frontmatter.title}</h1>
         <MDXProvider components={shortcodes}>
           <MDXRenderer frontmatter={mdx.frontmatter}>{mdx.body}</MDXRenderer>
