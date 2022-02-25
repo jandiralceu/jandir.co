@@ -15,8 +15,8 @@ const Index = ({ data }: any) => {
       <Header />
       <main className="mt-24 px-6">
         <section className="container max-w-5xl">
-          <div className="flex justify-between items-center font-semibold">
-            <h2 className="text-xl mb-6">Latest articles</h2>
+          <div className="flex justify-between items-center font-semibold mb-6">
+            <h2 className="text-xl">Latest articles</h2>
             <Link to="/blog" className="flex items-center text-xs">
               See all articles
               <FontAwesomeIcon
