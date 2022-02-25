@@ -3,7 +3,8 @@ import {
   faMoon,
   faSun,
   faBars,
-  faBell
+  faBell,
+  faArrowRight
 } from '@fortawesome/free-solid-svg-icons'
 import {
   fab,
@@ -23,5 +24,6 @@ library.add(
   faMoon,
   faSun,
   faBars,
-  faBell
+  faBell,
+  faArrowRight
 )

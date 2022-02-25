@@ -1,23 +1,24 @@
 import * as React from 'react'
-
-import { Navbar, SocialNetwork, Subscribe } from '../../ui'
-import { useSiteMetadata } from '../../../hooks'
 import { Link } from 'gatsby-plugin-react-i18next'
+
+import { useSiteMetadata } from '../../../hooks'
+import { Navbar, SocialNetwork, Subscribe } from '../../ui'
 
 export const MainTheme = ({ children }: React.PropsWithChildren<any>) => {
   const { title, description } = useSiteMetadata()
+
   return (
-    <div className="bg-zinc-100 min-h-screen flex flex-col">
+    <div className="bg-slate-50 text-slate-900 font-ibm min-h-screen flex flex-col">
       <div className="grow">
         <Navbar />
         {children}
       </div>
 
-      <footer className="px-6 bg-zinc-900 text-white py-14 lg:py-24 mt-48">
+      <footer className="bg-slate-100 px-6 py-14 lg:py-24 mt-28">
         <section className="container max-w-5xl flex flex-col md:grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           <section>
             <h2 className="mb-6">
-              <Link to="/" className="font-ibm font-bold text-3xl">
+              <Link to="/" className="font-bold text-3xl">
                 {title}
               </Link>
             </h2>
