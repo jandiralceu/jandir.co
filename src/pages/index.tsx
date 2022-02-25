@@ -2,12 +2,13 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Link } from 'gatsby-plugin-react-i18next'
 
+import { DateTimeUtils } from '../utils'
 import { Header } from '../components/ui'
 import { MainTheme } from '../components/layouts'
 import Seo from '../components/templates/Seo'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Index = () => {
+const Index = ({ data }: any) => {
   return (
     <MainTheme>
       <Seo />
@@ -26,27 +27,35 @@ const Index = () => {
             </Link>
           </div>
 
-          <div className="space-y-6 lg:space-y-0 flex flex-col lg:grid grid-cols-3 gap-x-16">
-            <article>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, ad,
-              asperiores blanditiis consequatur cupiditate doloremque enim in
-              ipsam laboriosam molestiae odit omnis quasi quisquam reprehenderit
-              soluta tempore veritatis vero, voluptates!
-            </article>
+          <div className="space-y-6 lg:space-y-0 flex flex-col lg:grid grid-cols-3 gap-x-12">
+            {data.lastArticles.nodes.map((article: any) => (
+              <article key={article.id}>
+                <Link to={`/blog/articles/${article.slug}`}>
+                  <div className="w-full">
+                    <img
+                      src={article.frontmatter.cover.publicURL}
+                      alt={article.frontmatter.title}
+                      className="grayscale hover:grayscale-0 rounded-lg"
+                    />
+                  </div>
 
-            <article>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, ad,
-              asperiores blanditiis consequatur cupiditate doloremque enim in
-              ipsam laboriosam molestiae odit omnis quasi quisquam reprehenderit
-              soluta tempore veritatis vero, voluptates!
-            </article>
-
-            <article>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, ad,
-              asperiores blanditiis consequatur cupiditate doloremque enim in
-              ipsam laboriosam molestiae odit omnis quasi quisquam reprehenderit
-              soluta tempore veritatis vero, voluptates!
-            </article>
+                  <div className="p-2">
+                    <div className="flex justify-between items-center text-xs text-slate-400">
+                      <span>
+                        {DateTimeUtils.formatDate(
+                          article.frontmatter.date,
+                          'MM/YYYY'
+                        )}
+                      </span>
+                      <span>{article.timeToRead}min to read.</span>
+                    </div>
+                    <h3 className="text-2xl mt-2">
+                      {article.frontmatter.title}
+                    </h3>
+                  </div>
+                </Link>
+              </article>
+            ))}
           </div>
         </section>
       </main>
@@ -63,6 +72,24 @@ export const query = graphql`
           data
           language
         }
+      }
+    }
+    lastArticles: allMdx(
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        id
+        slug
+        frontmatter {
+          date
+          tags
+          title
+          cover {
+            publicURL
+          }
+        }
+        timeToRead
       }
     }
   }

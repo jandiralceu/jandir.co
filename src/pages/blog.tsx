@@ -21,6 +21,7 @@ const Blog = ({ data }: any) => {
             <article>
               <h3>{article.frontmatter.title}</h3>
               <img
+                className="w-full"
                 src={article.frontmatter.cover.publicURL}
                 alt={article.frontmatter.title}
               />
