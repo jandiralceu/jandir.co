@@ -2,8 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Link } from 'gatsby-plugin-react-i18next'
 
-import { DateTimeUtils } from '../utils'
-import { Header } from '../components/ui'
+import { Header, ArticleCard } from '../components/ui'
 import { MainTheme } from '../components/layouts'
 import Seo from '../components/templates/Seo'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -29,34 +28,15 @@ const Index = ({ data }: any) => {
 
           <div className="space-y-6 lg:space-y-0 flex flex-col lg:grid grid-cols-3 gap-x-12">
             {data.lastArticles.nodes.map((article: any) => (
-              <article key={article.id}>
-                <Link to={`/blog/articles/${article.slug}`}>
-                  <div className="w-full">
-                    <img
-                      src={article.frontmatter.cover.publicURL}
-                      alt={article.frontmatter.title}
-                      className="grayscale hover:grayscale-0 rounded-lg"
-                    />
-                  </div>
-
-                  <div className="p-2">
-                    <div className="flex justify-between items-center text-xs text-slate-400">
-                      <span>
-                        {DateTimeUtils.formatDate(
-                          article.frontmatter.date,
-                          'MM/YYYY'
-                        )}
-                      </span>
-                      <span>{article.timeToRead}min to read.</span>
-                    </div>
-                    <h3 className="text-xl mt-2">
-                      {article.frontmatter.title}
-                    </h3>
-
-                    <p className="sm:hidden">{article.excerpt}</p>
-                  </div>
-                </Link>
-              </article>
+              <ArticleCard
+                key={article.id}
+                slug={article.slug}
+                title={article.frontmatter.title}
+                coverUrl={article.frontmatter.cover.publicURL}
+                date={article.frontmatter.date}
+                timeToRead={article.timeToRead}
+                description={article.excerpt}
+              />
             ))}
           </div>
         </section>
