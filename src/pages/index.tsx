@@ -49,9 +49,11 @@ const Index = ({ data }: any) => {
                       </span>
                       <span>{article.timeToRead}min to read.</span>
                     </div>
-                    <h3 className="text-2xl mt-2">
+                    <h3 className="text-xl mt-2">
                       {article.frontmatter.title}
                     </h3>
+
+                    <p className="sm:hidden">{article.excerpt}</p>
                   </div>
                 </Link>
               </article>
@@ -90,6 +92,7 @@ export const query = graphql`
           }
         }
         timeToRead
+        excerpt(pruneLength: 60)
       }
     }
   }
