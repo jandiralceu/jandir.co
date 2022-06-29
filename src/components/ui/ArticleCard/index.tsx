@@ -35,7 +35,7 @@ export const ArticleCard = ({
         <footer className="p-2">
           <div className="flex justify-between items-center text-xs text-slate-400">
             <time dateTime={date}>
-              {DateTimeUtils.formatDate(date, 'MM/YYYY')}
+              {DateTimeUtils.formatDate(date, 'MMMM DD, YYYY')}
             </time>
             <span>{timeToRead}min to read.</span>
           </div>

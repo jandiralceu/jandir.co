@@ -41,6 +41,10 @@ const Blog = ({ data }: any) => {
       <Seo title={`Blog | ${defaultTitle}`} />
 
       <main className="container max-w-5xl">
+        {/* <section className="flex justify-center"> */}
+        {/*  <input type="text" placeholder="Search..." className="w-4/12" /> */}
+        {/* </section> */}
+
         <section className="mt-16 mb-20">
           <h2>Search by topics:</h2>
 
