@@ -1,10 +1,12 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { MainTheme } from '../components/layouts'
 import { ArticleCard, Chips } from '../components/ui'
 import { useSiteMetadata } from '../hooks'
 import Seo from '../components/templates/Seo'
+import { useCallback } from 'react'
 
 const Blog = ({ data }: any) => {
   const { title: defaultTitle } = useSiteMetadata()
@@ -27,6 +29,12 @@ const Blog = ({ data }: any) => {
     [selectedTopics]
   )
 
+  const handleSearch = useCallback((e: React.FormEvent) => {
+    e.preventDefault()
+    // @ts-ignore
+    console.log(e.target.search.value)
+  }, [])
+
   React.useEffect(() => {
     const allTags = new Set()
     articles.forEach((node) => {
@@ -41,12 +49,25 @@ const Blog = ({ data }: any) => {
       <Seo title={`Blog | ${defaultTitle}`} />
 
       <main className="container max-w-5xl">
-        {/* <section className="flex justify-center"> */}
-        {/*  <input type="text" placeholder="Search..." className="w-4/12" /> */}
-        {/* </section> */}
+        <section className="flex justify-center mt-16 mb-20">
+          <form
+            onSubmit={handleSearch}
+            className="w-4/12 pr-4 flex gap-x-3 items-center rounded-3xl ring-4 ring-slate-900"
+          >
+            <input
+              type="text"
+              name="search"
+              placeholder="Search..."
+              className="bg-transparent border-none focus:ring-0 outline-none pl-6 grow"
+            />
+            <button className="bg-transparent border-none">
+              <FontAwesomeIcon icon={['fas', 'search']} size="lg" />
+            </button>
+          </form>
+        </section>
 
-        <section className="mt-16 mb-20">
-          <h2>Search by topics:</h2>
+        <section className="mt-16 mb-20 flex flex-col items-center">
+          <h2 className="font-semibold">Filter by topics:</h2>
 
           <div className="flex flex-wrap gap-x-3 mt-4">
             {topics.map((topic) => (

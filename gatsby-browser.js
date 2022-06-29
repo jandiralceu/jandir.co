@@ -2,6 +2,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faMoon,
   faSun,
+  faSearch,
   faBars,
   faBell,
   faArrowRight
@@ -25,5 +26,6 @@ library.add(
   faSun,
   faBars,
   faBell,
-  faArrowRight
+  faArrowRight,
+  faSearch
 )
