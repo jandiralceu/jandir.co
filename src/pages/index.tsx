@@ -26,7 +26,7 @@ const Index = ({ data }: any) => {
             </Link>
           </div>
 
-          <div className="space-y-6 lg:space-y-0 flex flex-col lg:grid grid-cols-3 gap-x-12">
+          <section className="space-y-6 lg:space-y-0 flex flex-col lg:grid grid-cols-3 gap-x-12">
             {data.lastArticles.nodes.map((article: any) => (
               <ArticleCard
                 key={article.id}
@@ -38,7 +38,7 @@ const Index = ({ data }: any) => {
                 description={article.excerpt}
               />
             ))}
-          </div>
+          </section>
         </section>
       </main>
     </MainTheme>

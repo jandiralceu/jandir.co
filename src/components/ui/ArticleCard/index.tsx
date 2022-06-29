@@ -22,23 +22,26 @@ export const ArticleCard = ({
   return (
     <article>
       <Link to={`/blog/articles/${slug}`}>
-        <div className="w-full">
-          <img
-            src={coverUrl}
-            alt={title}
-            className="grayscale hover:grayscale-0 rounded-lg"
+        <header className="w-full relative">
+          <div
+            role="img"
+            title={title}
+            aria-label={title}
+            style={{ backgroundImage: `url(${coverUrl})` }}
+            className="h-40 grayscale hover:grayscale-0 rounded-lg bg-no-repeat bg-center bg-cover"
           />
-        </div>
+        </header>
 
-        <div className="p-2">
+        <footer className="p-2">
           <div className="flex justify-between items-center text-xs text-slate-400">
-            <span>{DateTimeUtils.formatDate(date, 'MM/YYYY')}</span>
+            <time dateTime={date}>
+              {DateTimeUtils.formatDate(date, 'MM/YYYY')}
+            </time>
             <span>{timeToRead}min to read.</span>
           </div>
-          <h3 className="text-xl mt-2">{title}</h3>
 
-          <p className="sm:hidden">{description}</p>
-        </div>
+          <h3 className="text-xl mt-2">{title}</h3>
+        </footer>
       </Link>
     </article>
   )

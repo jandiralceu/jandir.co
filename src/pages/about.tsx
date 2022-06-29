@@ -13,7 +13,7 @@ const About = () => {
       <Seo title={`About | ${defaultTitle}`} />
 
       <main className="container max-w-5xl ">
-        <h1 className="text-3xl font-bold">Jandir Alceu</h1>
+        <h1 className="text-3xl font-bold">Jandir A. Kutabyala</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
           dignissimos maxime, nemo nobis perferendis perspiciatis sapiente

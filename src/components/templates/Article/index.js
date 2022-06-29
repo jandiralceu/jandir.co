@@ -10,20 +10,30 @@ import { useSiteMetadata } from '../../../hooks'
 
 const shortcodes = { Link }
 
-const Article = ({ data: { mdx } }) => {
+const Article = ({ data: { mdx: article } }) => {
   const { siteUrl: defaultUrl } = useSiteMetadata()
 
   return (
     <MainTheme>
       <Seo
-        cover={`${defaultUrl}${mdx.frontmatter.cover.publicURL}`}
-        title={mdx.frontmatter.title}
+        cover={`${defaultUrl}${article.frontmatter.cover.publicURL}`}
+        title={article.frontmatter.title}
         article
       />
+      <div
+        className="container max-w-5xl my-20 bg-fixed bg-contain"
+        style={{
+          backgroundImage: `url(${article.frontmatter.cover.publicURL})`
+        }}
+      >
+        <div className="h-80" />
+      </div>
       <main className="container max-w-5xl my-20 px-6">
-        <h1>{mdx.frontmatter.title}</h1>
+        <h1 className="text-3xl mb-10">{article.frontmatter.title}</h1>
         <MDXProvider components={shortcodes}>
-          <MDXRenderer frontmatter={mdx.frontmatter}>{mdx.body}</MDXRenderer>
+          <MDXRenderer frontmatter={article.frontmatter}>
+            {article.body}
+          </MDXRenderer>
         </MDXProvider>
       </main>
     </MainTheme>
