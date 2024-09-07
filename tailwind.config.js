@@ -5,7 +5,11 @@ module.exports = {
     `./src/components/**/*.{js,jsx,ts,tsx}`,
   ],
   theme: {
+    fontFamily: {
+      sans: ["Reddit Sans Condensed", "sans-serif"],
+      serif: ["Kally dreams", "serif"],
+    },
     extend: {},
   },
   plugins: [],
-}
+};

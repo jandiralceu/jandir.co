@@ -1,0 +1,27 @@
+name: PR
+
+on:
+  pull_request:
+    branches:
+      - develop
+    types:
+      - opened
+      - reopened
+      - edited
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: 🏃‍ Checkout
+        uses: actions/checkout@v4
+
+      - name: 📌 Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: "yarn"
+
+      - name: 📌 Install dependencies
+        run: yarn install
