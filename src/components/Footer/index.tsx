@@ -5,6 +5,8 @@ import SiteDescription from "../SiteDescription";
 import SocialIcons from "../SocialIcons";
 import Navbar from "../Navbar";
 
+const currentYear = new Date().getFullYear();
+
 export default function Footer() {
   return (
     <footer className="bg-black text-white mt-20 py-20">
@@ -21,7 +23,7 @@ export default function Footer() {
       </div>
 
       <div className="container m-auto flex justify-between items-center text-xs mt-20">
-        <p>All rights reserved © jandir.co 2024 </p>
+        <p>All rights reserved © jandir.co {currentYear} </p>
         <a href="http://" target="_blank" rel="noopener noreferrer">
           Term of use
         </a>
