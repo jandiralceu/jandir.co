@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Link } from "gatsby";
+
 import Logo from "../Logo";
+import SocialIcons from "../SocialIcons";
 
 export default function Navbar() {
   return (
@@ -9,7 +11,10 @@ export default function Navbar() {
         <Logo />
       </h1>
 
-      <ul className="grid grid-cols-2 gap-4 text-xl">
+      <ul className="flex justify-center items-center gap-6 text-xl">
+        <li>
+          <Link to="/">Home</Link>
+        </li>
         <li>
           <Link to="/blog">Blog</Link>
         </li>
@@ -17,6 +22,8 @@ export default function Navbar() {
           <Link to="/about">About</Link>
         </li>
       </ul>
+
+      <SocialIcons className="flex justify-center items-center gap-6" />
     </nav>
   );
 }

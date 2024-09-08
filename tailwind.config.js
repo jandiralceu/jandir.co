@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ["Reddit Sans Condensed", "sans-serif"],
-      serif: ["Kally dreams", "serif"],
+      serif: ["Kally Dreams", "serif"],
     },
     extend: {},
   },

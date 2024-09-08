@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Reddit+Sans+Condensed:wght@200..900&display=swap");
-
 @font-face {
-  font-family: "Kally dreams";
-  src: url("/fonts/Kally dreams.otf") format("opentype");
+  font-family: "Kally Dreams";
+  src: url("/fonts/Kally_dreams.otf") format("opentype");
 }
 
 @tailwind base;
