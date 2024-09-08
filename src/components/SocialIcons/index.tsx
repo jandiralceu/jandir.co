@@ -23,15 +23,24 @@ export default function SocialIcons({
       <a
         href="https://www.youtube.com/channel/UCtBEtQ2wOra3eGJt-lIMr_A"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <FontAwesomeIcon icon={faYoutube} size={iconSize} />
       </a>
 
-      <a href="https://github.com/jandiralceu" target="_blank">
+      <a
+        href="https://github.com/jandiralceu"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <FontAwesomeIcon icon={faGithub} size={iconSize} />
       </a>
 
-      <a href="https://github.com/jandiralceu" target="_blank">
+      <a
+        href="https://github.com/jandiralceu"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <FontAwesomeIcon icon={faLinkedin} size={iconSize} />
       </a>
     </section>
