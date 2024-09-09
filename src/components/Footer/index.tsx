@@ -14,7 +14,9 @@ export default function Footer() {
         <Logo />
 
         <Navbar>
-          <li>Sitemap.xml</li>
+          <li className="hover:border-b-2 pb-2">
+            <a href="/sitemap.xml">Sitemap</a>
+          </li>
         </Navbar>
 
         <SiteDescription className="text-xl font-extralight" />

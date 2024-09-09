@@ -7,6 +7,7 @@ import {
   faYoutube,
   faGithub,
   faLinkedin,
+  faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 
 type SocialIconProps = {
@@ -24,6 +25,7 @@ export default function SocialIcons({
         href="https://www.youtube.com/channel/UCtBEtQ2wOra3eGJt-lIMr_A"
         target="_blank"
         rel="noopener noreferrer"
+        title="YouTube"
       >
         <FontAwesomeIcon icon={faYoutube} size={iconSize} />
       </a>
@@ -32,6 +34,7 @@ export default function SocialIcons({
         href="https://github.com/jandiralceu"
         target="_blank"
         rel="noopener noreferrer"
+        title="GitHub"
       >
         <FontAwesomeIcon icon={faGithub} size={iconSize} />
       </a>
@@ -40,8 +43,18 @@ export default function SocialIcons({
         href="https://github.com/jandiralceu"
         target="_blank"
         rel="noopener noreferrer"
+        title="LinkedIn"
       >
         <FontAwesomeIcon icon={faLinkedin} size={iconSize} />
+      </a>
+
+      <a
+        href="https://github.com/jandiralceu"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Instagram"
+      >
+        <FontAwesomeIcon icon={faInstagram} size={iconSize} />
       </a>
     </section>
   );

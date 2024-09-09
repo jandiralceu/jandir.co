@@ -7,7 +7,7 @@ export default function Layout({ children }: React.PropsWithChildren) {
   return (
     <div>
       <Navbar />
-      <div className="mt-14 container m-auto">{children}</div>
+      <div className="mt-20 container m-auto">{children}</div>
       <Footer />
     </div>
   );
