@@ -3,7 +3,7 @@ name: Develop PR
 on:
   pull_request:
     branches:
-      - develop
+      - main
     types:
       - opened
       - reopened
@@ -11,23 +11,7 @@ on:
       - synchronize
 
 jobs:
-  lint-and-test:
-    runs-on: ubuntu-22.04
-
-    steps:
-      - name: 🏃‍ Checkout
-        uses: actions/checkout@v4
-
-      - name: 📌 Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-          cache: "yarn"
-
-      - name: 📌 Install dependencies
-        run: yarn install
   sonarcloud:
-    needs: lint-and-test
     name: 🚀 Upload to SonarCloud
     runs-on: ubuntu-latest
     steps:
