@@ -26,6 +26,7 @@ export default function SocialIcons({
         target="_blank"
         rel="noopener noreferrer"
         title="YouTube"
+        className="text-opacity-50 hover:text-opacity-100"
       >
         <FontAwesomeIcon icon={faYoutube} size={iconSize} />
       </a>

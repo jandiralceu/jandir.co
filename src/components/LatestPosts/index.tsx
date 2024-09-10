@@ -51,7 +51,7 @@ export default function LatestPosts() {
   return (
     <section>
       <hr />
-      <h3 className="text-4xl font-extralight mt-16 leading-[3.2rem]">
+      <h3 className="text-4xl font-extralight mt-16 leading-[3.2rem] tracking-wide">
         See what I’ve <br />
         <strong>written lately</strong>
       </h3>

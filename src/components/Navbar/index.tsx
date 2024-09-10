@@ -20,7 +20,7 @@ export default function Navbar({
   return (
     <ul
       className={[
-        "flex justify-center items-start gap-6 text-2xl font-normal",
+        "flex justify-center items-start gap-6 text-xl font-normal",
         className,
       ].join(" ")}
       {...rest}
@@ -39,6 +39,7 @@ export default function Navbar({
               "pb-2",
               isCurrentRoute ? "font-bold border-b-2" : "hover:border-b-2",
             ].join(" ")}
+            title={name}
           >
             {name}
           </Link>

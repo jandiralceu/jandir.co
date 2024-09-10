@@ -19,14 +19,14 @@ export default function ArticleCard({ title, slug, cover }: ArticleCardProps) {
   const image = getImage(cover.childImageSharp ?? null);
 
   return (
-    <Link to={buildPostUrl(slug)}>
-      <div className="w-full h-[370px]">
+    <article className="w-full bg-white shadow-md rounded-xl">
+      <Link to={buildPostUrl(slug)} className="w-full h-[320px] block">
         {image && (
           <GatsbyImage
             image={image}
             title={title}
             alt={title}
-            className="rounded-xl w-full h-full"
+            className="w-full h-full rounded-t-xl"
           />
         )}
 
@@ -34,13 +34,23 @@ export default function ArticleCard({ title, slug, cover }: ArticleCardProps) {
           <img
             src={cover.publicURL}
             alt={title}
-            className="rounded-xl"
+            className="w-full h-full"
             title={title}
           />
         )}
-      </div>
+      </Link>
 
-      <h4 className="text-2xl mt-6">{title}</h4>
-    </Link>
+      <div className="p-6">
+        <div className="flex justify-between items-center">
+          <div className="bg-zinc-950 text-white px-4 py-2 rounded-full text-sm shadow-md">
+            Category
+          </div>
+          <p className="text-lg text-slate-500">August 24th, 2020</p>
+        </div>
+        <Link to={buildPostUrl(slug)} className="text-2xl mt-4 block">
+          <h4>{title}</h4>
+        </Link>
+      </div>
+    </article>
   );
 }
