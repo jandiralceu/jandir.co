@@ -24,6 +24,7 @@ export default [
       ".cache/",
       ".gitignore",
       "yarn.lock",
+      ".nvimrc",
     ],
   },
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
