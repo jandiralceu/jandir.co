@@ -1,0 +1,25 @@
+# generated files
+.cache
+node_modules
+build
+dist
+public
+
+# editors
+.vscode
+.idea
+
+# environment files
+.env*
+
+# package manager
+*.lock
+
+# linting
+.husky
+.prettierignore
+
+# misc
+.nvmrc
+.gitignore
+sonar-project.properties

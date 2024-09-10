@@ -6,7 +6,7 @@ import SiteDescription from "../components/SiteDescription";
 import LatestPosts from "../components/LatestPosts";
 import Subscribe from "../components/Subscribe";
 
-export default function IndexPage(data: PageProps) {
+export default function IndexPage(_: PageProps) {
   return (
     <Layout>
       <main>

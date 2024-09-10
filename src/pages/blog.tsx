@@ -2,7 +2,7 @@ import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import Layout from "../components/Layout";
 
-export default function BlogPage(data: PageProps) {
+export default function BlogPage(_: PageProps) {
   return (
     <Layout>
       <div>

@@ -1,6 +1,11 @@
+# generated files
 node_modules/
 .cache/
 public
-src/gatsby-types.d.ts
+dist
+
 .env
+
+# misc
 .DS_Store
+src/gatsby-types.d.ts
