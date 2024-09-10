@@ -3,8 +3,14 @@ node_modules/
 .cache/
 public
 dist
+build
 
-.env
+# environment files
+.env*
+
+# editors
+.vscode
+.idea
 
 # misc
 .DS_Store

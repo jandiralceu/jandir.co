@@ -3,12 +3,11 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import eslintPluginPrettier from "eslint-plugin-prettier/recommended";
-import react from "eslint-plugin-react";
 
 export default [
   {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
-    plugins: { react },
+    plugins: { react: pluginReact },
     settings: {
       react: {
         version: "detect",

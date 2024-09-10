@@ -26,6 +26,13 @@ jobs:
 
       - name: 📌 Install dependencies
         run: yarn install
+
+      - name: 🕵🏻 Run lint
+        run: yarn run lint
+
+      - name: 🩺 Check code formatting
+        run: yarn run prettier:check
+
   sonarcloud:
     needs: lint-and-test
     name: 🚀 Upload to SonarCloud
