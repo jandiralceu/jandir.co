@@ -1,40 +1,13 @@
 # jandir.co
 
-1.  **Create a Gatsby site.**
-
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
-
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
-
-2.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
-
-3.  **Open the code and start customizing!**
-
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.tsx` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-## 🚀 Quick start (Netlify)
-
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
-
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jandiralceu_jandir.co&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=jandiralceu_jandir.co)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=jandiralceu_jandir.co&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=jandiralceu_jandir.co)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=jandiralceu_jandir.co&metric=bugs)](https://sonarcloud.io/summary/new_code?id=jandiralceu_jandir.co)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=jandiralceu_jandir.co&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=jandiralceu_jandir.co)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=jandiralceu_jandir.co&metric=coverage)](https://sonarcloud.io/summary/new_code?id=jandiralceu_jandir.co)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=jandiralceu_jandir.co&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=jandiralceu_jandir.co)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=jandiralceu_jandir.co&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=jandiralceu_jandir.co)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=jandiralceu_jandir.co&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=jandiralceu_jandir.co)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=jandiralceu_jandir.co&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=jandiralceu_jandir.co)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=jandiralceu_jandir.co&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=jandiralceu_jandir.co)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=jandiralceu_jandir.co&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=jandiralceu_jandir.co)
