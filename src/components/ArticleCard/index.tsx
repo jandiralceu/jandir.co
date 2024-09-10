@@ -5,9 +5,9 @@ import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import { buildPostUrl } from "../../utils";
 
 type ArticleCardProps = {
-  title: string;
-  slug: string;
-  cover: {
+  readonly title: string;
+  readonly slug: string;
+  readonly cover: {
     childImageSharp?: {
       gatsbyImageData: IGatsbyImageData;
     };

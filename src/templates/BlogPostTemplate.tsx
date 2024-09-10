@@ -8,7 +8,7 @@ import { MDXProvider } from "@mdx-js/react";
 import Layout from "../components/Layout";
 
 interface BlogPostProps {
-  data: {
+  readonly data: {
     mdx: {
       body: string;
       frontmatter: {

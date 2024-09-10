@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "gatsby";
 import { useLocation } from "@reach/router";
 
-type NavbarProps = {} & Partial<React.HTMLAttributes<HTMLUListElement>>;
+type NavbarProps = Partial<React.HTMLAttributes<HTMLUListElement>>;
 
 const menuItems = [
   { name: "Home", path: "/" },
@@ -45,7 +45,7 @@ export default function Navbar({
           </Link>
         );
       })}
-      {children && children}
+      {children}
     </ul>
   );
 }
