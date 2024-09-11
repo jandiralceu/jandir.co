@@ -16,6 +16,9 @@ export default [
       react: {
         version: "detect",
       },
+      jest: {
+        version: "detect",
+      },
     },
   },
   {
@@ -40,7 +43,7 @@ export default [
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   eslintPluginPrettier,
-  // eslintPluginJest.configs.recommended,
+  eslintPluginJest.configs["flat/all"],
   {
     rules: {
       "react/no-unescaped-entities": "off",
