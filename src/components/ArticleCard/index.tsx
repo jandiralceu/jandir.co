@@ -19,7 +19,7 @@ export default function ArticleCard({ title, slug, cover }: ArticleCardProps) {
   const image = getImage(cover.childImageSharp ?? null);
 
   return (
-    <article className="w-full bg-white shadow-md rounded-xl">
+    <article className="w-full bg-white shadow-sm rounded-xl hover:shadow-xl transition-all duration-300 ease-in">
       <Link to={buildPostUrl(slug)} className="w-full h-[320px] block">
         {image && (
           <GatsbyImage
@@ -42,7 +42,7 @@ export default function ArticleCard({ title, slug, cover }: ArticleCardProps) {
 
       <div className="p-6">
         <div className="flex justify-between items-center">
-          <div className="bg-zinc-950 text-white px-4 py-2 rounded-full text-sm shadow-md">
+          <div className="bg-slate-950/80 text-white px-4 py-2 rounded-full text-sm shadow-md">
             Category
           </div>
           <p className="text-lg text-slate-500">August 24th, 2020</p>

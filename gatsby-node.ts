@@ -34,7 +34,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const { createPage } = actions;
   const blogPostTemplate = path.resolve(`src/templates/BlogPostTemplate.tsx`);
 
-  const { data, errors } = await graphql<GraphQLResult>(`
+  const result = await graphql<GraphQLResult>(`
     {
       allMdx {
         edges {
@@ -56,12 +56,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
     }
   `);
 
-  if (!!errors || !data) {
+  if (!!result.errors || !result.data) {
     reporter.panicOnBuild("Error while running GraphQL query.");
     return;
   }
 
-  data.data.allMdx.edges.forEach(({ node }: BlogPost) => {
+  result.data.allMdx.edges.forEach(({ node }: BlogPost) => {
     createPage({
       path: `/blog${node.frontmatter.slug}`,
       component: blogPostTemplate,

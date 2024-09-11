@@ -7,6 +7,9 @@ export default function BlogPage(_: PageProps) {
     <Layout>
       <div>
         <h2>Blog</h2>
+        <h2>Blog</h2>
+        <h2>Blog</h2>
+        <h2>Blog</h2>
       </div>
     </Layout>
   );
