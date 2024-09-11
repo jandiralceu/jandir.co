@@ -43,7 +43,7 @@ export default [
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   eslintPluginPrettier,
-  eslintPluginJest.configs["flat/all"],
+  eslintPluginJest.configs["flat/recommended"],
   {
     rules: {
       "react/no-unescaped-entities": "off",
