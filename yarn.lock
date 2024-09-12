@@ -8941,6 +8941,11 @@ instantsearch-ui-components@0.9.0:
   dependencies:
     "@babel/runtime" "^7.1.2"
 
+instantsearch.css@8.5.1:
+  version "8.5.1"
+  resolved "https://registry.yarnpkg.com/instantsearch.css/-/instantsearch.css-8.5.1.tgz#ece29d17048c282dda95b5eb35400041c519f97d"
+  integrity sha512-lu4gWSa2crIA1OAuFwtrNJy4d8oRvKmkY5gv8Dbf3tuedQMm6cf7K+1kXJKRAHLm4pZos9RXIH10m57UfDKbyg==
+
 instantsearch.js@4.74.1:
   version "4.74.1"
   resolved "https://registry.yarnpkg.com/instantsearch.js/-/instantsearch.js-4.74.1.tgz#8768c4f5151de7317755505fef657e7598ea348e"

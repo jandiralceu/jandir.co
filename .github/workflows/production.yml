@@ -1,4 +1,4 @@
-name: Develop PR
+name: Production
 
 on:
   push:

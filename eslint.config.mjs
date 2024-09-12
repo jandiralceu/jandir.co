@@ -53,6 +53,7 @@ export default [
           argsIgnorePattern: "^_",
         },
       ],
+      "@typescript-eslint/no-explicit-any": "off",
     },
   },
 ];

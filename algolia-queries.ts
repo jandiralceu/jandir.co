@@ -3,6 +3,9 @@ interface PageNode {
   frontmatter: {
     title: string;
     slug: string;
+    cover: {
+      publicURL: string;
+    };
   };
   excerpt: string;
 }
@@ -22,6 +25,9 @@ interface AlgoliaRecord {
   title: string;
   slug: string;
   excerpt: string;
+  cover: {
+    publicURL: string;
+  };
 }
 
 interface AlgoliaQuery {
@@ -41,8 +47,11 @@ const pageQuery = `{
         frontmatter {
           title
           slug
+          cover {
+            publicURL
+          }
         }
-        excerpt(pruneLength: 5000)
+        excerpt(pruneLength: 120)
       }
     }
   }
