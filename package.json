@@ -22,7 +22,8 @@
     "lint": "npx eslint .",
     "prettier:format": "prettier --write .",
     "prettier:check": "prettier . --check",
-    "test": "jest"
+    "test": "jest",
+    "cy:open": "cypress open"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "6.6.0",
@@ -62,6 +63,7 @@
     "@types/react-dom": "18.2.19",
     "babel-jest": "29.7.0",
     "babel-preset-gatsby": "3.13.2",
+    "cypress": "13.14.2",
     "eslint": "9.10.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-jest": "28.8.3",
