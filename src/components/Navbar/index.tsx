@@ -2,7 +2,10 @@ import * as React from "react";
 import { Link } from "gatsby";
 import { useLocation } from "@reach/router";
 
-type NavbarProps = Partial<React.HTMLAttributes<HTMLUListElement>>;
+type NavbarProps = {
+  activeBorderClassName?: React.HTMLAttributes<HTMLElement>["className"];
+  hoverBorderClassName?: React.HTMLAttributes<HTMLElement>["className"];
+} & Partial<React.HTMLAttributes<HTMLUListElement>>;
 
 const menuItems = [
   { name: "Home", path: "/" },
@@ -13,6 +16,8 @@ const menuItems = [
 export default function Navbar({
   children,
   className,
+  activeBorderClassName,
+  hoverBorderClassName,
   ...rest
 }: React.PropsWithChildren<NavbarProps>) {
   const location = useLocation();
@@ -36,8 +41,10 @@ export default function Navbar({
             key={path}
             to={path}
             className={[
-              "pb-2",
-              isCurrentRoute ? "font-bold border-b-2" : "hover:border-b-2",
+              "pb-2 ",
+              isCurrentRoute
+                ? `font-bold border-b-2 ${activeBorderClassName}`
+                : `border-b-0 hover:border-b-2 transition-all duration-300 ease-in ${hoverBorderClassName}`,
             ].join(" ")}
             title={name}
           >

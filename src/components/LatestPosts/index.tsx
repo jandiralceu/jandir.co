@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
 interface Post {
-  node: {
+  readonly node: {
     frontmatter: {
       title: string;
       slug: string;
@@ -20,7 +20,7 @@ interface Post {
 }
 
 interface RecentPostsData {
-  allMdx: {
+  readonly allMdx: {
     edges: Post[];
   };
 }

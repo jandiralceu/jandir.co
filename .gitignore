@@ -1,6 +1,18 @@
+# generated files
 node_modules/
 .cache/
 public
-src/gatsby-types.d.ts
+dist
+build
+
+# environment files
 .env
+.env.local
+
+# editors
+.vscode
+.idea
+
+# misc
 .DS_Store
+src/gatsby-types.d.ts

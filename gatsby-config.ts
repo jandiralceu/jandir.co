@@ -1,16 +1,26 @@
+import "dotenv/config";
 import type { GatsbyConfig } from "gatsby";
+
+import algoliaQueries from "./algolia-queries";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `jandir.co`,
+    title: `Jandir A. Cutabiala`,
     siteUrl: `https://jandir.co`,
+    author: {
+      name: `Jandir A. Cutabiala`,
+      summary: `I explore real-world software engineering challenges and share solutions from my daily experience.`,
+    },
     description:
       "Hey, I'm Jandir A. Cutabiala. I explore real-world software engineering challenges and share solutions from my daily experience.",
+    social: {
+      twitter: `jandiralceu`,
+      github: `jandiralceu`,
+      linkedin: `jandiralceu`,
+      instagram: `jandiralceu`,
+    },
   },
   trailingSlash: "never",
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-postcss",
@@ -54,6 +64,15 @@ const config: GatsbyConfig = {
         path: "./src/posts/",
       },
       __key: "posts",
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        queries: algoliaQueries,
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME ?? "Posts",
+      },
     },
   ],
 };

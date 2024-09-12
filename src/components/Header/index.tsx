@@ -11,9 +11,15 @@ export default function Header() {
         <Logo />
       </h1>
 
-      <Navbar />
+      <Navbar
+        activeBorderClassName="border-b-black"
+        hoverBorderClassName="border-b-black/60"
+      />
 
-      <SocialIcons className="flex justify-center items-center gap-6" />
+      <SocialIcons
+        className="flex justify-center items-center gap-6"
+        iconClassName="text-slate-500 hover:text-slate-950 transition-color duration-300 fade-in"
+      />
     </nav>
   );
 }

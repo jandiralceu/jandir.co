@@ -12,10 +12,12 @@ import {
 
 type SocialIconProps = {
   iconSize?: FontAwesomeIconProps["size"];
+  iconClassName?: FontAwesomeIconProps["className"];
 } & Partial<React.HTMLAttributes<HTMLElement>>;
 
 export default function SocialIcons({
   iconSize = "xl",
+  iconClassName,
   className,
   ...rest
 }: SocialIconProps) {
@@ -26,7 +28,7 @@ export default function SocialIcons({
         target="_blank"
         rel="noopener noreferrer"
         title="YouTube"
-        className="text-opacity-50 hover:text-opacity-100"
+        className={iconClassName}
       >
         <FontAwesomeIcon icon={faYoutube} size={iconSize} />
       </a>
@@ -36,6 +38,7 @@ export default function SocialIcons({
         target="_blank"
         rel="noopener noreferrer"
         title="GitHub"
+        className={iconClassName}
       >
         <FontAwesomeIcon icon={faGithub} size={iconSize} />
       </a>
@@ -45,6 +48,7 @@ export default function SocialIcons({
         target="_blank"
         rel="noopener noreferrer"
         title="LinkedIn"
+        className={iconClassName}
       >
         <FontAwesomeIcon icon={faLinkedin} size={iconSize} />
       </a>
@@ -54,6 +58,7 @@ export default function SocialIcons({
         target="_blank"
         rel="noopener noreferrer"
         title="Instagram"
+        className={iconClassName}
       >
         <FontAwesomeIcon icon={faInstagram} size={iconSize} />
       </a>
