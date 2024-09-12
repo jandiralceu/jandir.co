@@ -61,6 +61,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     return;
   }
 
+  // @ts-expect-error - TS is complaining about the type of `allMdx` here
   result.data.allMdx.edges.forEach(({ node }: BlogPost) => {
     createPage({
       path: `/blog${node.frontmatter.slug}`,

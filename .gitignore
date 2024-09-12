@@ -6,7 +6,8 @@ dist
 build
 
 # environment files
-.env*
+.env
+.env.local
 
 # editors
 .vscode

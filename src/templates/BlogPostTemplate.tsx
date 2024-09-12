@@ -26,7 +26,8 @@ interface BlogPostProps {
 
 export default function BlogPostTemplate({ data }: BlogPostProps) {
   const post = data.mdx;
-  const hasHistory = window.history.length > 2;
+  const hasHistory =
+    typeof window !== "undefined" ? window.history.length > 2 : false;
   const cover = getImage(post.frontmatter.cover);
 
   return (

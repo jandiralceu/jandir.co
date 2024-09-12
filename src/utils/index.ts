@@ -1,3 +1,1 @@
-export function buildPostUrl(slug: string) {
-  return `/blog${slug}`;
-}
+export * from "./post";
