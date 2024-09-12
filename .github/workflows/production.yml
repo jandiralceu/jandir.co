@@ -1,25 +1,51 @@
 name: Develop PR
 
 on:
-  pull_request:
+  push:
     branches:
       - main
-    types:
-      - opened
-      - reopened
-      - edited
-      - synchronize
 
 jobs:
-  sonarcloud:
-    name: 🚀 Upload to SonarCloud
-    runs-on: ubuntu-latest
+  build:
+    environment: production
+    runs-on: ubuntu-22.04
+
     steps:
-      - uses: actions/checkout@v4
+      - name: 🏃‍ Checkout
+        uses: actions/checkout@v4
+
+      - name: 📌 Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          fetch-depth: 0
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+          node-version-file: .nvmrc
+          cache: "yarn"
+
+      - name: 📌 Install dependencies
+        run: yarn install
+
+      - name: 🏗️ Build
+        run: yarn build
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GATSBY_ALGOLIA_APP_ID: ${{ secrets.GATSBY_ALGOLIA_APP_ID }}
+          GATSBY_ALGOLIA_INDEX_NAME: ${{ secrets.GATSBY_ALGOLIA_INDEX_NAME }}
+          GATSBY_ALGOLIA_SEARCH_KEY: ${{ secrets.GATSBY_ALGOLIA_SEARCH_KEY }}
+          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+
+      - name: 📦 Upload public directory as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: jandir.co
+          path: public/
+  deploy:
+    needs: build
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: 🏃‍ Checkout
+        uses: actions/checkout@v4
+
+      - name: 📦 Download public directory artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: jandir.co
