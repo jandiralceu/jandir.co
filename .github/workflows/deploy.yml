@@ -49,6 +49,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: public
+          path: public
 
       - name: 🔍 List downloaded files
         run: ls -l
@@ -63,7 +64,7 @@ jobs:
           AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET_NAME }}
           DISTRIBUTION_ID: ${{ secrets.AWS_DISTRIBUTION_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-          SOURCE_DIR: "/home/runner/work/jandir.co/jandir.co/public"
+          SOURCE_DIR: "public"
 
       # - uses: jakejarvis/s3-sync-action@master
       #   name: 🚀 Deploy to S3
