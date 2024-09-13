@@ -50,6 +50,9 @@ jobs:
         with:
           name: public
 
+      - name: 🔍 List downloaded files
+        run: ls -l
+
       - uses: kersvers/s3-sync-with-cloudfront-invalidation@v1.0.0
         name: 🚀 Deploy to S3 and invalidate CloudFront cache
         with:
