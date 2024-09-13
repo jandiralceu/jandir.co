@@ -1,0 +1,85 @@
+name: Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    environment: production
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: 🏃‍ Checkout
+        uses: actions/checkout@v4
+
+      - name: 📌 Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: "yarn"
+
+      - name: 📌 Install dependencies
+        run: yarn install
+
+      - name: 🏗️ Build
+        run: yarn build
+        env:
+          GATSBY_ALGOLIA_APP_ID: ${{ secrets.GATSBY_ALGOLIA_APP_ID }}
+          GATSBY_ALGOLIA_INDEX_NAME: ${{ secrets.GATSBY_ALGOLIA_INDEX_NAME }}
+          GATSBY_ALGOLIA_SEARCH_KEY: ${{ secrets.GATSBY_ALGOLIA_SEARCH_KEY }}
+          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+
+      - name: 📦 Upload public directory as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: public
+          path: public
+  deploy:
+    needs: build
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: 🏃‍ Checkout
+        uses: actions/checkout@v4
+
+      - name: 📦 Download public directory artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: public
+
+      - uses: kersvers/s3-sync-with-cloudfront-invalidation@v1.0.0
+        name: 🚀 Deploy to S3 and invalidate CloudFront cache
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET_NAME }}
+          DISTRIBUTION_ID: ${{ secrets.AWS_DISTRIBUTION_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          SOURCE_DIR: "/home/runner/work/jandir.co/jandir.co/public" # optional: defaults to entire repository
+
+
+      # - uses: jakejarvis/s3-sync-action@master
+      #   name: 🚀 Deploy to S3
+      #   with:
+      #     args: --acl public-read --follow-symlinks --delete
+      #   env:
+      #     AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET_NAME }}
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
+      #     AWS_REGION: ${{ secrets.AWS_REGION }}
+      #     SOURCE_DIR: "/home/runner/work/jandir.co/jandir.co/public"
+
+      # - uses: actions/checkout@v4
+      # - uses: awact/cloudfront-action@master
+      #   name: 👮🏿‍♂️ Invalidate CloudFront cache
+      #   env:
+      #     SOURCE_PATH: "/index.html"
+      #     AWS_REGION: ${{ secrets.AWS_REGION }}
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+      #     DISTRIBUTION_ID: ${{ secrets.AWS_DISTRIBUTION_ID }}

@@ -36,7 +36,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   const result = await graphql<GraphQLResult>(`
     {
-      allMdx {
+      allMdx(sort: { fields: frontmatter___date, order: DESC }) {
         edges {
           node {
             id

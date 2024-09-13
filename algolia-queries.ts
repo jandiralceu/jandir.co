@@ -1,17 +1,17 @@
 interface PageNode {
-  id: string;
-  frontmatter: {
+  readonly id: string;
+  readonly frontmatter: {
     title: string;
     slug: string;
     cover: {
       publicURL: string;
     };
   };
-  excerpt: string;
+  readonly excerpt: string;
 }
 
 interface PageQueryResult {
-  data: {
+  readonly data: {
     pages: {
       edges: {
         node: PageNode;
@@ -21,20 +21,20 @@ interface PageQueryResult {
 }
 
 interface AlgoliaRecord {
-  objectID: string;
-  title: string;
-  slug: string;
-  excerpt: string;
-  cover: {
+  readonly objectID: string;
+  readonly title: string;
+  readonly slug: string;
+  readonly excerpt: string;
+  readonly cover: {
     publicURL: string;
   };
 }
 
 interface AlgoliaQuery {
-  query: string;
-  transformer: (result: PageQueryResult) => AlgoliaRecord[];
-  indexName: string;
-  settings: {
+  readonly query: string;
+  readonly transformer: (result: PageQueryResult) => AlgoliaRecord[];
+  readonly indexName: string;
+  readonly settings: {
     attributesToSnippet: string[];
   };
 }
