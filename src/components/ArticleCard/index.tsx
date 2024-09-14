@@ -11,11 +11,16 @@ type ArticleCardProps = {
     childImageSharp?: {
       gatsbyImageData: IGatsbyImageData;
     };
-    publicURL: string;
   };
+  readonly tags: string[];
 };
 
-export default function ArticleCard({ title, slug, cover }: ArticleCardProps) {
+export default function ArticleCard({
+  title,
+  slug,
+  cover,
+  tags,
+}: ArticleCardProps) {
   const image = getImage(cover.childImageSharp ?? null);
 
   return (
@@ -29,24 +34,25 @@ export default function ArticleCard({ title, slug, cover }: ArticleCardProps) {
             className="w-full h-full rounded-t-xl"
           />
         )}
-
-        {!image && cover.publicURL && (
-          <img
-            src={cover.publicURL}
-            alt={title}
-            className="w-full h-full"
-            title={title}
-          />
-        )}
       </Link>
 
       <div className="p-6">
-        <div className="flex justify-between items-center">
-          <div className="bg-slate-950/80 text-white px-4 py-2 rounded-full text-sm shadow-md">
-            Category
+        <div className="flex justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <strong>Tags: </strong>
+            <div className="flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <span key={tag} className=" text-sm text-slate-500 lowercase">
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
-          <p className="text-lg text-slate-500">August 24th, 2020</p>
+          <div>
+            <p className="text-md text-slate-500">August 24th, 2020</p>
+          </div>
         </div>
+
         <Link to={buildPostUrl(slug)} className="text-2xl mt-4 block">
           <h4>{title}</h4>
         </Link>

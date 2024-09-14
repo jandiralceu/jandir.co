@@ -23,8 +23,10 @@
     "lint": "npx eslint .",
     "prettier:format": "prettier --write .",
     "prettier:check": "prettier . --check",
+    "cy:open": "cypress open",
     "test": "jest",
-    "cy:open": "cypress open"
+    "test:ci": "yarn test --ci --bail --coverage",
+    "test:watch": "yarn test --watch"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "6.6.0",
@@ -90,7 +92,8 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix",
-      "prettier --write"
+      "prettier --write",
+      "jest --bail --passWithNoTests --findRelatedTests"
     ],
     "*": [
       "prettier --write"

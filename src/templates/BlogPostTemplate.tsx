@@ -17,7 +17,6 @@ interface BlogPostProps {
           childImageSharp?: {
             gatsbyImageData: IGatsbyImageData;
           };
-          publicURL: string;
         };
       };
     };
@@ -37,13 +36,13 @@ export default function BlogPostTemplate({ data }: BlogPostProps) {
           <button
             className="flex items-center gap-3"
             type="button"
-            onClick={() => {
+            onClick={async () => {
               if (hasHistory) {
-                navigate(-1);
+                await navigate(-1);
                 return;
               }
 
-              navigate("/blog");
+              await navigate("/blog");
             }}
           >
             <FontAwesomeIcon icon={faArrowLeft} size="xl" className="" />

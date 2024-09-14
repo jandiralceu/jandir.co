@@ -1,9 +1,10 @@
-name: Develop PR
+name: Pull Request
+run-name: ${{ github.actor }} on ${{ github.event_name }}
 
 on:
   pull_request:
     branches:
-      - develop
+      - main
     types:
       - opened
       - reopened
@@ -24,24 +25,19 @@ jobs:
           node-version-file: .nvmrc
           cache: "yarn"
 
-      - name: 📌 Install dependencies
+      - name: ⏳ Install dependencies
         run: yarn install
 
       - name: 🕵🏻 Run lint
         run: yarn run lint
 
-      - name: 🩺 Check code formatting
+      - name: 🔬 Check code formatting
         run: yarn run prettier:check
 
-  sonarcloud:
-    needs: lint-and-test
-    name: 🚀 Upload to SonarCloud
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: SonarCloud Scan
+      - name: 🧪 Run tests
+        run: yarn test:ci
+
+      - name: 🚀 Upload to SonarCloud
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}

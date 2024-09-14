@@ -6,6 +6,7 @@ interface PageNode {
     cover: {
       publicURL: string;
     };
+    tags: string[];
   };
   readonly excerpt: string;
 }
@@ -28,6 +29,7 @@ interface AlgoliaRecord {
   readonly cover: {
     publicURL: string;
   };
+  readonly tags: string[];
 }
 
 interface AlgoliaQuery {
@@ -50,6 +52,7 @@ const pageQuery = `{
           cover {
             publicURL
           }
+          tags
         }
         excerpt(pruneLength: 120)
       }

@@ -1,32 +1,9 @@
 import * as React from "react";
 import ArticleCard from "../ArticleCard";
 import { graphql, useStaticQuery } from "gatsby";
-import { IGatsbyImageData } from "gatsby-plugin-image";
-
-interface Post {
-  readonly node: {
-    frontmatter: {
-      title: string;
-      slug: string;
-      date: string;
-      cover: {
-        childImageSharp?: {
-          gatsbyImageData: IGatsbyImageData;
-        };
-        publicURL: string;
-      };
-    };
-  };
-}
-
-interface RecentPostsData {
-  readonly allMdx: {
-    edges: Post[];
-  };
-}
 
 export default function LatestPosts() {
-  const data = useStaticQuery<RecentPostsData>(graphql`
+  const data = useStaticQuery<IPageData<IPost>>(graphql`
     query {
       allMdx(sort: { frontmatter: { date: DESC } }, limit: 3) {
         edges {
@@ -39,8 +16,8 @@ export default function LatestPosts() {
                 childImageSharp {
                   gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
                 }
-                publicURL
               }
+              tags
             }
           }
         }
@@ -63,6 +40,7 @@ export default function LatestPosts() {
             title={node.frontmatter.title}
             slug={node.frontmatter.slug}
             cover={node.frontmatter.cover}
+            tags={node.frontmatter.tags}
           />
         ))}
       </div>

@@ -1,30 +1,5 @@
 import path from "path";
 import { GatsbyNode } from "gatsby";
-import { IGatsbyImageData } from "gatsby-plugin-image";
-
-interface BlogPost {
-  readonly node: {
-    id: string;
-    frontmatter: {
-      title: string;
-      slug: string;
-      cover: {
-        childImageSharp?: {
-          gatsbyImageData: IGatsbyImageData;
-        };
-        publicURL: string;
-      };
-    };
-  };
-}
-
-interface GraphQLResult {
-  readonly data: {
-    allMdx: {
-      edges: BlogPost[];
-    };
-  };
-}
 
 export const createPages: GatsbyNode["createPages"] = async ({
   actions,
@@ -34,9 +9,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const { createPage } = actions;
   const blogPostTemplate = path.resolve(`src/templates/BlogPostTemplate.tsx`);
 
-  const result = await graphql<GraphQLResult>(`
+  const result = await graphql<IPageData<IPost>>(`
     {
-      allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+      allMdx(sort: { frontmatter: { date: DESC } }) {
         edges {
           node {
             id
@@ -49,6 +24,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
                 }
                 publicURL
               }
+              tags
             }
           }
         }
@@ -61,8 +37,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     return;
   }
 
-  // @ts-expect-error - TS is complaining about the type of `allMdx` here
-  result.data.allMdx.edges.forEach(({ node }: BlogPost) => {
+  result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: `/blog${node.frontmatter.slug}`,
       component: blogPostTemplate,

@@ -4,6 +4,7 @@ node_modules/
 public
 dist
 build
+coverage
 
 # environment files
 .env

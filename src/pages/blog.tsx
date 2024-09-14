@@ -1,39 +1,21 @@
 import * as React from "react";
-// import { graphql } from "gatsby";
+import { graphql } from "gatsby";
 import type { HeadFC, PageProps } from "gatsby";
 
 import Layout from "../components/Layout";
 import SearchBar from "../components/Search";
+import ArticleCard from "../components/ArticleCard";
+
 // import { useState } from "react";
 // import InfiniteScroll from "react-infinite-scroll-component";
-// import ArticleCard from "../components/ArticleCard";
 
-const topics = [
-  "React",
-  "Gatsby",
-  "Tailwind CSS",
-  "JavaScript",
-  "TypeScript",
-  "GraphQL",
-  "AWS",
-  "Azure",
-  "Google Cloud",
-  "CI/CD",
-  "Testing",
-  "Performance",
-  "Security",
-  "SEO",
-  "Frontend",
-  "Backend",
-  "Fullstack",
-  "DevOps",
-  "Serverless",
-  "PWA",
-  "WebAssembly",
-  "Web Development",
-];
+const BlogPage = ({ data }: PageProps<IPageData<IPost>>) => {
+  const tags: string[] = React.useMemo(() => {
+    return Array.from(
+      new Set(data.allMdx.edges.flatMap(({ node }) => node.frontmatter.tags)),
+    );
+  }, []);
 
-const BlogPage = (_: PageProps) => {
   // console.log(params);
   // // @ts-expect-error - AllMdx type is not defined
   // const initialPosts = params.data?.allMdx.edges ?? [];
@@ -69,46 +51,56 @@ const BlogPage = (_: PageProps) => {
           <h2 className="text-2xl">Search by topics</h2>
 
           <div className="flex flex-wrap gap-4 mt-8 max-w-[80%]">
-            {topics.map((topic) => (
-              <p
+            {tags.map((tag) => (
+              <button
                 className="bg-slate-950/70 text-white px-4 py-2 rounded-full text-md shadow-md lowercase"
-                key={topic}
+                key={tag}
+                onClick={() => {}}
               >
-                {topic}
-              </p>
+                {tag}
+              </button>
             ))}
           </div>
+        </section>
+
+        <section className="mt-20 grid grid-cols-3 gap-10">
+          {data?.allMdx.edges.map(({ node }) => (
+            <ArticleCard
+              key={node.id}
+              title={node.frontmatter.title}
+              slug={node.frontmatter.slug}
+              cover={node.frontmatter.cover}
+              tags={node.frontmatter.tags}
+            />
+          ))}
         </section>
       </div>
     </Layout>
   );
 };
 
-// export const pageQuery = graphql`
-//   query BlogPostsQuery($limit: Int!, $skip: Int!) {
-//     allMdx(
-//       sort: { fields: frontmatter___date, order: DESC }
-//       limit: $limit
-//       skip: $skip
-//     ) {
-//       edges {
-//         node {
-//           id
-//           frontmatter {
-//             title
-//             slug
-//             date(formatString: "MMMM DD, YYYY")
-//             cover {
-//               childImageSharp {
-//                 gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+export const pageQuery = graphql`
+  query Posts {
+    allMdx(sort: { frontmatter: { date: DESC } }) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            slug
+            date(formatString: "MMMM DD, YYYY")
+            cover {
+              childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+              }
+            }
+            tags
+          }
+        }
+      }
+    }
+  }
+`;
 
 /* <section className="mt-24">
           <InfiniteScroll

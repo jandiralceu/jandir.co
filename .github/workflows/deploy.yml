@@ -14,13 +14,13 @@ jobs:
       - name: 🏃‍ Checkout
         uses: actions/checkout@v4
 
-      - name: 📌 Set up Node.js
+      - name: 📌 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
           cache: "yarn"
 
-      - name: 📌 Install dependencies
+      - name: ⏳ Install dependencies
         run: yarn install
 
       - name: 🏗️ Build
@@ -32,11 +32,12 @@ jobs:
           ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
 
-      - name: 📦 Upload public directory as artifact
+      - name: 📦 Packing build as artifact
         uses: actions/upload-artifact@v3
         with:
           name: public
           path: public/
+          retention-days: 1
   deploy:
     needs: build
     runs-on: ubuntu-22.04
@@ -45,14 +46,11 @@ jobs:
       - name: 🏃‍ Checkout
         uses: actions/checkout@v4
 
-      - name: 📦 Download public directory artifact
+      - name: 💻 Download artifact
         uses: actions/download-artifact@v3
         with:
           name: public
           path: public
-
-      - name: 🔍 List downloaded files
-        run: ls -l
 
       - uses: kersvers/s3-sync-with-cloudfront-invalidation@v1.0.0
         name: 🚀 Deploy to S3 and invalidate CloudFront cache
@@ -65,24 +63,3 @@ jobs:
           DISTRIBUTION_ID: ${{ secrets.AWS_DISTRIBUTION_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
           SOURCE_DIR: "public"
-
-      # - uses: jakejarvis/s3-sync-action@master
-      #   name: 🚀 Deploy to S3
-      #   with:
-      #     args: --acl public-read --follow-symlinks --delete
-      #   env:
-      #     AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET_NAME }}
-      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
-      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
-      #     AWS_REGION: ${{ secrets.AWS_REGION }}
-      #     SOURCE_DIR: "/home/runner/work/jandir.co/jandir.co/public"
-
-      # - uses: actions/checkout@v4
-      # - uses: awact/cloudfront-action@master
-      #   name: 👮🏿‍♂️ Invalidate CloudFront cache
-      #   env:
-      #     SOURCE_PATH: "/index.html"
-      #     AWS_REGION: ${{ secrets.AWS_REGION }}
-      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
-      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
-      #     DISTRIBUTION_ID: ${{ secrets.AWS_DISTRIBUTION_ID }}
