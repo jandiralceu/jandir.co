@@ -64,7 +64,7 @@ export const Head: HeadFC = () => {
       <meta property="og:description" content={site.siteMetadata.description} />
       <meta
         property="og:image"
-        content={`${site.siteMetadata.siteUrl}/${file.publicURL}`}
+        content={`${site.siteMetadata.siteUrl}${file.publicURL}`}
       />
       <meta property="og:url" content={site.siteMetadata.siteUrl} />
 
@@ -77,7 +77,7 @@ export const Head: HeadFC = () => {
       />
       <meta
         name="twitter:image"
-        content={`${site.siteMetadata.siteUrl}/${file.publicURL}`}
+        content={`${site.siteMetadata.siteUrl}${file.publicURL}`}
       />
     </>
   );
