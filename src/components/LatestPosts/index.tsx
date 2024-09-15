@@ -11,7 +11,7 @@ export default function LatestPosts() {
             frontmatter {
               title
               slug
-              date
+              date(formatString: "MMMM DD, YYYY")
               cover {
                 childImageSharp {
                   gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
@@ -41,6 +41,7 @@ export default function LatestPosts() {
             slug={node.frontmatter.slug}
             cover={node.frontmatter.cover}
             tags={node.frontmatter.tags}
+            date={node.frontmatter.date}
           />
         ))}
       </div>

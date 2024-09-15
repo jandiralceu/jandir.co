@@ -71,6 +71,7 @@ const BlogPage = ({ data }: PageProps<IPageData<IPost>>) => {
               slug={node.frontmatter.slug}
               cover={node.frontmatter.cover}
               tags={node.frontmatter.tags}
+              date={node.frontmatter.date}
             />
           ))}
         </section>

@@ -74,6 +74,14 @@ const config: GatsbyConfig = {
         indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME ?? "Posts",
       },
     },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: process.env.GATSBY_GOOGLE_TAG_MANAGER_ID,
+        routeChangeEventName: "page_change",
+        enableWebVitalsTracking: true,
+      },
+    },
   ],
 };
 

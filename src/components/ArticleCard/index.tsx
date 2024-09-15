@@ -12,6 +12,7 @@ type ArticleCardProps = {
       gatsbyImageData: IGatsbyImageData;
     };
   };
+  readonly date: string;
   readonly tags: string[];
 };
 
@@ -20,6 +21,7 @@ export default function ArticleCard({
   slug,
   cover,
   tags,
+  date,
 }: ArticleCardProps) {
   const image = getImage(cover.childImageSharp ?? null);
 
@@ -49,7 +51,7 @@ export default function ArticleCard({
             </div>
           </div>
           <div>
-            <p className="text-md text-slate-500">August 24th, 2020</p>
+            <p className="text-md text-slate-500">{date}</p>
           </div>
         </div>
 
