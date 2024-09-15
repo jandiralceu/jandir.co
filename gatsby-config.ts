@@ -44,7 +44,6 @@ const config: GatsbyConfig = {
           {
             userAgent: "*",
             allow: ["/"],
-            disallow: [],
           },
         ],
       },
@@ -134,7 +133,6 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
         id: process.env.GATSBY_GOOGLE_TAG_MANAGER_ID,
-        routeChangeEventName: "page_change",
         enableWebVitalsTracking: true,
       },
     },
