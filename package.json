@@ -39,6 +39,7 @@
     "autoprefixer": "10.4.20",
     "dotenv": "16.4.5",
     "gatsby": "5.13.7",
+    "gatsby-omni-font-loader": "2.0.2",
     "gatsby-plugin-algolia": "1.0.3",
     "gatsby-plugin-canonical-urls": "5.13.1",
     "gatsby-plugin-google-gtag": "5.13.1",
@@ -59,6 +60,7 @@
     "postcss": "8.4.41",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-helmet": "6.1.0",
     "react-infinite-scroll-component": "6.1.0",
     "react-instantsearch": "7.13.1",
     "tailwindcss": "3.4.10"

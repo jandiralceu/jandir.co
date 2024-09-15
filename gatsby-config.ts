@@ -69,6 +69,22 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: `gatsby-omni-font-loader`,
+      options: {
+        enableListener: true,
+        preconnect: [
+          `https://fonts.googleapis.com`,
+          `https://fonts.gstatic.com`,
+        ],
+        web: [
+          {
+            name: `Reddit Sans Condensed`,
+            file: `https://fonts.googleapis.com/css2?family=Reddit+Sans+Condensed:wght@200..900&display=swap`,
+          },
+        ],
+      },
+    },
+    {
       resolve: "gatsby-plugin-mdx",
       options: {
         extensions: [`.mdx`, `.md`],
