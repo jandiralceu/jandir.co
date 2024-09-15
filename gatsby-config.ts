@@ -3,10 +3,12 @@ import type { GatsbyConfig } from "gatsby";
 
 import algoliaQueries from "./algolia-queries";
 
+const siteUrl = "https://jandir.co";
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Jandir A. Cutabiala | Software Engineer`,
-    siteUrl: `https://jandir.co`,
+    siteUrl,
     author: {
       name: `Jandir A. Cutabiala`,
     },
@@ -36,8 +38,8 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: "https://jandir.co",
-        sitemap: "https://jandir.co/sitemap",
+        host: siteUrl,
+        sitemap: `${siteUrl}/sitemap-index.xml`,
         policy: [
           {
             userAgent: "*",
@@ -51,6 +53,13 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-html-attributes",
       options: {
         lang: "en",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl,
+        stripQueryString: true,
       },
     },
     {

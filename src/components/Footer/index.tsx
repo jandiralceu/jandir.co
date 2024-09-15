@@ -36,7 +36,7 @@ export default function Footer() {
 
       <div className="container m-auto flex justify-between items-center text-xs mt-20">
         <p>All rights reserved © jandir.co {currentYear} </p>
-        <a href="http://" target="_blank" rel="noopener noreferrer">
+        <a href="/" target="_blank" rel="noopener noreferrer">
           Term of use
         </a>
       </div>
