@@ -64,7 +64,7 @@ export const Head: HeadFC = () => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={siteUrl} />
-      <meta property="og:image" content={file.publicURL} />
+      <meta property="og:image" content={`${siteUrl + file.publicURL}`} />
       <meta property="og:image:width" content="2116" />
       <meta property="og:image:height" content="2646" />
       <meta property="og:image:type" content="image/jpeg" />
@@ -73,7 +73,7 @@ export const Head: HeadFC = () => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={file.publicURL} />
+      <meta name="twitter:image" content={`${siteUrl + file.publicURL}`} />
     </>
   );
 };
