@@ -10,7 +10,7 @@ const config: GatsbyConfig = {
     title: `Jandir A. Cutabiala | Software Engineer`,
     siteUrl,
     author: {
-      name: `Jandir A. Cutabiala`,
+      name: `Jandir Alceu Cutabiala`,
     },
     description:
       "Hey, I'm Jandir A. Cutabiala. I explore real-world software engineering challenges and share solutions from my daily experience.",

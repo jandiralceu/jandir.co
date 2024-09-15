@@ -67,7 +67,7 @@ export const Head: HeadFC = () => {
         property="og:image"
         content={`${site.siteMetadata.siteUrl}${file.publicURL}`}
       />
-      <meta property="og:image:width" content="2116 " />
+      <meta property="og:image:width" content="2116" />
       <meta property="og:image:height" content="2646" />
       <meta property="og:image:type" content="image/jpeg" />
 
