@@ -20,3 +20,16 @@ interface IPost {
     };
   };
 }
+
+interface ISiteMetadata {
+  readonly site: {
+    readonly siteMetadata: {
+      readonly title: string;
+      readonly description: string;
+      readonly siteUrl: string;
+      readonly author: {
+        readonly name: string;
+      };
+    };
+  };
+}

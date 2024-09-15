@@ -5,11 +5,10 @@ import algoliaQueries from "./algolia-queries";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `Jandir A. Cutabiala`,
+    title: `Jandir A. Cutabiala | Software Engineer`,
     siteUrl: `https://jandir.co`,
     author: {
       name: `Jandir A. Cutabiala`,
-      summary: `I explore real-world software engineering challenges and share solutions from my daily experience.`,
     },
     description:
       "Hey, I'm Jandir A. Cutabiala. I explore real-world software engineering challenges and share solutions from my daily experience.",
@@ -32,6 +31,26 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-manifest",
       options: {
         icon: "src/images/icon.png",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://jandir.co",
+        sitemap: "https://jandir.co/sitemap",
+        policy: [
+          {
+            userAgent: "*",
+            allow: ["/"],
+            disallow: [],
+          },
+        ],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-html-attributes",
+      options: {
+        lang: "en",
       },
     },
     {

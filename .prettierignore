@@ -23,3 +23,6 @@ public
 .nvmrc
 .gitignore
 sonar-project.properties
+
+# others
+src/images

@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import { graphql, useStaticQuery, type HeadFC, type PageProps } from "gatsby";
 
 import Layout from "../components/Layout";
 import SiteDescription from "../components/SiteDescription";
@@ -28,6 +28,48 @@ export default function IndexPage(_: PageProps) {
   );
 }
 
-export const Head: HeadFC = () => (
-  <title>Jandir A. Cutabiala | Software Engineer</title>
-);
+export const Head: HeadFC = () => {
+  const { site } = useStaticQuery<ISiteMetadata>(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          siteUrl
+          author {
+            name
+          }
+        }
+      }
+    }
+  `);
+
+  return (
+    <>
+      <title>{site.siteMetadata.title}</title>
+      <meta name="description" content={site.siteMetadata.description} />
+      <meta name="author" content={site.siteMetadata.author.name} />
+      {/* Open Graph meta options */}
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={site.siteMetadata.title} />
+      <meta property="og:description" content={site.siteMetadata.description} />
+      <meta
+        property="og:image"
+        content={`${site.siteMetadata.siteUrl}/images/me.jpg`}
+      />
+      <meta property="og:url" content={site.siteMetadata.siteUrl} />
+
+      {/* Twitter meta options */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={site.siteMetadata.title} />
+      <meta
+        name="twitter:description"
+        content={site.siteMetadata.description}
+      />
+      <meta
+        name="twitter:image"
+        content={`${site.siteMetadata.siteUrl}/images/me.jpg`}
+      />
+    </>
+  );
+};

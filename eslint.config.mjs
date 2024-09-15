@@ -32,6 +32,9 @@ export default [
       "yarn.lock",
       ".nvmrc",
       "__mocks__/",
+      "coverage/",
+      "dist/",
+      "src/images/",
     ],
   },
   {
@@ -56,4 +59,14 @@ export default [
       "@typescript-eslint/no-explicit-any": "off",
     },
   },
+  // {
+  //   overrides: [
+  //     {
+  //       files: ["src/images/**"],
+  //       rules: {
+  //         all: "off",
+  //       },
+  //     },
+  //   ],
+  // },
 ];
