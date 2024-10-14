@@ -16,9 +16,9 @@ export default function IndexPage(_: PageProps) {
   return (
     <Layout>
       <main>
-        <SiteDescription className="leading-[4rem] text-5xl font-extralight" />
+        <SiteDescription className="leading-[4rem] text-5xl font-extralight container m-auto" />
 
-        <section className="mt-16 grid grid-cols-[500px_300px] items-center gap-6">
+        <section className="mt-16 grid grid-cols-[500px_300px] items-center gap-6 container m-auto">
           <Subscribe />
           <p className="">
             Subscribe to my newsletter for updates, tips, and exclusive content.

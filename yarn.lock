@@ -14743,6 +14743,11 @@ swap-case@^2.0.2:
   dependencies:
     tslib "^2.0.3"
 
+swiper@11.1.10:
+  version "11.1.10"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-11.1.10.tgz#4d3df50ff8afc4960e9644ed6e5828d35ab38853"
+  integrity sha512-pAVM6vCb6bumj2B9aSh67l3wP1j5YR8dPQM1YhQKMpnBc33vs+RpyVz6NZYZl/ZopCBSYbbWK5nvESwbmU0QXQ==
+
 symbol-tree@^3.2.4:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"

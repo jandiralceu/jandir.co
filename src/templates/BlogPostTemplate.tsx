@@ -33,7 +33,7 @@ export default function BlogPostTemplate({ data }: BlogPostProps) {
 
   return (
     <Layout>
-      <main>
+      <main className="container m-auto">
         <div>
           <button
             className="flex items-center gap-3"
@@ -54,7 +54,7 @@ export default function BlogPostTemplate({ data }: BlogPostProps) {
           </button>
         </div>
 
-        <div className="grid grid-cols-2 mt-20 gap-12 bg-white rounded-r-2xl">
+        <div className="grid grid-cols-2 mt-20 gap-12 bg-white rounded-r-2xl ">
           <GatsbyImage
             image={cover as IGatsbyImageData}
             alt={post.frontmatter.title}

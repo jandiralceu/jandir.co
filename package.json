@@ -50,7 +50,6 @@
     "gatsby-plugin-manifest": "5.13.1",
     "gatsby-plugin-mdx": "5.13.1",
     "gatsby-plugin-postcss": "6.13.1",
-    "gatsby-plugin-purgecss": "6.2.1",
     "gatsby-plugin-robots-txt": "1.8.0",
     "gatsby-plugin-sharp": "5.13.1",
     "gatsby-plugin-sitemap": "6.13.1",
@@ -64,6 +63,7 @@
     "react-helmet": "6.1.0",
     "react-infinite-scroll-component": "6.1.0",
     "react-instantsearch": "7.13.1",
+    "swiper": "11.1.10",
     "tailwindcss": "3.4.10"
   },
   "devDependencies": {

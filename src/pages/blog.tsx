@@ -36,7 +36,7 @@ const BlogPage = ({ data }: PageProps<IPageData<IPost>>) => {
 
   return (
     <Layout>
-      <div>
+      <div className="container m-auto">
         <h2 className="text-4xl mb-8 font-extralight">
           <strong className="font-normal">Looking for</strong> something
           specific? <br /> Search through my{" "}
