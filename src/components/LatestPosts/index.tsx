@@ -1,5 +1,4 @@
 import * as React from "react";
-import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { graphql, Link, useStaticQuery } from "gatsby";
@@ -9,11 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-// import "swiper/css";
-
 import ArticleCard from "../ArticleCard";
-
-SwiperCore.use([Navigation]);
 
 export default function LatestPosts() {
   const data = useStaticQuery<IPageData<IPost>>(graphql`
@@ -69,6 +64,7 @@ export default function LatestPosts() {
             prevEl: ".post-highlight-prev",
           }}
           centeredSlides={true}
+          modules={[Navigation]}
         >
           {data.allMdx.edges.map(({ node }, index) => (
             <SwiperSlide
