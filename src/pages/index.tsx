@@ -6,6 +6,8 @@ import SiteDescription from "../components/SiteDescription";
 import LatestPosts from "../components/LatestPosts";
 import Subscribe from "../components/Subscribe";
 
+import "swiper/css";
+
 interface IHomeMetadata extends ISiteMetadata {
   readonly file: {
     publicURL: string;

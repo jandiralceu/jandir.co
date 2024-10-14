@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import "swiper/css";
+// import "swiper/css";
 
 import ArticleCard from "../ArticleCard";
 
@@ -48,7 +48,11 @@ export default function LatestPosts() {
         </h3>
         <div className="flex gap-4 justify-start items-start">
           <button type="button" className="post-highlight-prev cursor-pointer">
-            <FontAwesomeIcon icon={faArrowLeftLong} size="xl" />
+            <FontAwesomeIcon
+              icon={faArrowLeftLong}
+              size="xl"
+              className="font-extralight"
+            />
           </button>
           <button type="button" className="post-highlight-next cursor-pointer">
             <FontAwesomeIcon icon={faArrowRightLong} size="xl" />
